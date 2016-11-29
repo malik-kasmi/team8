@@ -5,6 +5,7 @@
   background-size: cover !important;
   color: white;
   position: relative;
+  border-radius: 5px;
 }
 .card-user {
   position: absolute;
@@ -15,8 +16,9 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 10px;
+  font-size: 30px;
   text-transform: uppercase;
+
 }
 .card-description {
   position: absolute;
@@ -24,21 +26,26 @@
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 20px;
 }
-.card-description p {
-  font-size: 13px;
-  }
+
 .card-link {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   width: 100%;
-  z-index:2;
-  background: black;
-  opacity: 0;
+  // z-index:2;
+  background-image: asset-url("basketball.jpg");
+  background-position: center, center;
+  background-size: cover;
+  opacity: 0.5;
 }
 .card-link:hover{
   opacity: 0.1;
+}
+
+.card-padded {
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
