@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="padded-light text-center">
+    <h2> MY PROFILE </h2>
+  </div>
+
+    <div class = "container bg-grey padded rounded test">
+    <%= image_tag "logo.png", class: "thumbnail", size: "150x150"%>
+      <div>
+        <p><strong>Username: </strong> <%= @profile.username %> </p>
+        <p><strong>Age:</strong> <%= @profile.age %> </p>
+        <p><strong>City:</strong> <%= @profile.city %> </p>
+      </div>
+      <div>
+        <p><strong>Gender: </strong><%= @profile.gender %> </p>
+        <p><strong>Description: </strong><%= @profile.description %> </p>
+        <p><strong>Favorite position: </strong><%= @profile.favorite_position %> </p>
+      </div>
+    </div>
+    <br>
+
+    <div class='alert'>
+      <button type="button" class="btn btn-default"><%= link_to "Home", root_path %></button>
+      <button type="button" class="btn btn-default"><%= link_to "All players", users_path %></button>
+      <button type="button" class="btn btn-default"><%= link_to "Edit profile", edit_profile_path %></button>
+  </div>
+</div>
