@@ -1,10 +1,15 @@
-<h1> My profile </h1>
-
-<%= simple_form_for @profile, url: profile_path do |f| %>
-  <%= f.input :age %>
-  <%= f.input :city %>
-  <%= f.input :gender %>
-  <%= f.input :description %>
-  <%= f.input :favorite_position %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+      <h1> My profile </h1>
+      <%= simple_form_for @profile, url: profile_path do |f| %>
+        <%= f.input :age %>
+        <%= f.input :city %>
+        <%= f.input :gender %>
+        <%= f.input :description %>
+        <%= f.input :favorite_position %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

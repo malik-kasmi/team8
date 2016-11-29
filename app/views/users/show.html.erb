@@ -1,13 +1,23 @@
-<h1>Profile of <%= @user.username%></h1>
+<div class="container">
+  <div class="padded-light text-center">
+    <h1>Profile of <%= @user.username%></h1>
+  </div>
 
-<%= @user.username %>
-<%= @user.email %>
-<%= @user.age %>
-<%= @user.city %>
-<%= @user.gender %>
-<%= @user.description %>
-<%= @user.favorite_position %>
-<br>
-<%= link_to "See all players", users_path %>
+  <div class = "container bg-grey padded rounded test">
+    <%= image_tag "logo.png", class: "thumbnail", size: "150x150"%>
+    <div>
+      <p><strong>Username: </strong> <%= @user.username %> </p>
+      <p><strong>Age:</strong> <%= @user.age %> </p>
+      <p><strong>City:</strong> <%= @user.city %> </p>
+    </div>
+    <div>
+      <p><strong>Gender: </strong><%= @user.gender %> </p>
+      <p><strong>Description: </strong><%= @user.description %> </p>
+      <p><strong>Favorite position: </strong><%= @user.favorite_position %> </p>
+    </div>
+  </div>
 
-
+  <div class='alert'>
+    <button type="button" class="btn btn-default"><%= link_to "See all players", users_path %></button>
+  </div>
+</div>

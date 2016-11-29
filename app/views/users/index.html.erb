@@ -1,15 +1,31 @@
-<h1>Profiles (all players) </h1>
+<div class="text-center padded-light">
+  <h1> Profiles (all players) </h1>
+</div>
 
-<% @users.each do |u| %>
-  <div>
-    <p> Username: <%= u.username %> </p>
-    <p> Email: <%= u.email %> </p>
-    <p> Age: <%= u.age %> </p>
-    <p> City: <%= u.city %> </p>
-    <p> Gender: <%= u.gender %> </p>
-    <p> Description: <%= u.description %> </p>
-    <p> Favorite position: <%= u.favorite_position %> </p>
-    <%= link_to "View", user_path(u) %>
-    <br> <br> <br>
-  </div>
-<% end %>
+<div>
+  <% @users.each do |u| %>
+    <div class="badge-bordered padded-light rounded bg-grey">
+      <div class="test">
+        <div>
+          <%= image_tag "logo.png",size: "100x100" %>
+        </div>
+        <div>
+          <p><strong>Username: </strong><%= u.username %> </p>
+          <p><strong>Email: </strong><%= u.email %> </p>
+          <p><strong>Age: </strong><%= u.age %> </p>
+        </div>
+        <div>
+          <p><strong>City: </strong><%= u.city %> </p>
+          <p><strong>Gender: </strong><%= u.gender %> </p>
+          <p><strong>Description: </strong><%= u.description %> </p>
+          <p><strong>Favorite position: </strong><%= u.favorite_position %> </p>
+        </div>
+      </div>
+      <div class='alert'>
+        <button type="button" class="btn btn-default"><%= link_to "View", user_path(u) %></button>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
