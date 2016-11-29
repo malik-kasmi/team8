@@ -1,7 +1,15 @@
 <h1> YOUR PROFILE </h1>
 
-<p>Age <%= @profile.age %> </p>
-<p>City <%= @profile.city %> </p>
-<p>Gender <%= @profile.gender %> </p>
-<p>Description <%= @profile.description %> </p>
-<p>Favorite position <%= @profile.favorite_position %> </p>
+<p>Username: <%= @profile.username %> </p>
+<p>Age: <%= @profile.age %> </p>
+<p>City: <%= @profile.city %> </p>
+<p>Gender: <%= @profile.gender %> </p>
+<p>Description: <%= @profile.description %> </p>
+<p>Favorite position: <%= @profile.favorite_position %> </p>
+<br>
+
+<%= link_to "All players", users_path %>
+<br>
+<%= link_to "Home", root_path %>
+<br>
+<%= link_to "Edit profile", edit_profile_path %>

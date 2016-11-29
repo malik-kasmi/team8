@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
     @profile = current_user
     @profile.update(current_user_params)
 
-    redirect_to profile_path(@profile)
+    redirect_to profile_path
   end
 
   def show
@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 private
 
   def current_user_params
-    params.require(:profile).permit(:city, :age,
+    params.require(:user).permit(:age, :city,
      :gender, :description, :favorite_position)
   end
 

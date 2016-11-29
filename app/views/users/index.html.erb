@@ -1,1 +1,15 @@
+<h1>Profiles (all players) </h1>
 
+<% @users.each do |u| %>
+  <div>
+    <p> Username: <%= u.username %> </p>
+    <p> Email: <%= u.email %> </p>
+    <p> Age: <%= u.age %> </p>
+    <p> City: <%= u.city %> </p>
+    <p> Gender: <%= u.gender %> </p>
+    <p> Description: <%= u.description %> </p>
+    <p> Favorite position: <%= u.favorite_position %> </p>
+    <%= link_to "View", user_path(u) %>
+    <br> <br> <br>
+  </div>
+<% end %>

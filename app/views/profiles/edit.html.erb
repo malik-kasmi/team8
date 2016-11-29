@@ -1,6 +1,6 @@
 <h1> My profile </h1>
 
-<%= simple_form_for @profile do |f| %>
+<%= simple_form_for @profile, url: profile_path do |f| %>
   <%= f.input :age %>
   <%= f.input :city %>
   <%= f.input :gender %>
