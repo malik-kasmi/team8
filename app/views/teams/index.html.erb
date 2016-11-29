@@ -1,0 +1,51 @@
+<!-- <h1 class="text-center">Les équipes</h1>
+
+<ul>
+  <% @teams.each do |team| %>
+    <div class = "container">
+      <div class = "card_container padded">
+      <li class="team_name text-center"><strong> <%= link_to team.name, team_path(team) %></strong></li>
+        # <%= image_tag"logo.png", id:"team_picture"%>
+          <div class="team_profiles">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-3 padding_left">
+               <%= image_tag "logo.png", id:"captain"%>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3 padding_left">
+                <%= image_tag "logo.png"%>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-3 padding_left">
+                <%= image_tag "logo.png"%>
+              </div>
+            </div>
+          </div>
+      <li class="city"><%= team.city %></li>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</ul> -->
+
+
+
+<h1 class="text-center"><strong> Les équipes</strong></h1>
+<ul>
+  <% @teams.each do |team| %>
+ <div class="wrapper-grey padded">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+              <div class="card-category"><%= team.city %></div>
+              <div class="card-description">
+                <h2><%= team.name%></h2>
+              </div>
+              <img class="card-user avatar avatar-large" src="logo.png">
+              <a class="card-link" href="#" ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</ul>
