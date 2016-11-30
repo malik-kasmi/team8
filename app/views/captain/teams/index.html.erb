@@ -1,0 +1,31 @@
+<div class="text-center padded-light">
+  <h1> My teams </h1>
+</div>
+
+<div>
+  <% @teams.each do |t| %>
+    <div class="badge-bordered padded-light rounded bg-grey">
+      <div class="test">
+        <div>
+          <%= image_tag "logo.png",size: "100x100" %>
+        </div>
+        <div>
+          <p><strong>Name: </strong><%= t.name %> </p>
+          <p><strong>City: </strong><%= t.city %> </p>
+          <p><strong>Description: </strong><%= t.description %> </p>
+        </div>
+      </div>
+      <div class='alert'>
+        <button type="button" class="btn btn-default"><%= link_to "View", captain_team_path(t) %></button>
+        <button type="button" class="btn btn-default">
+        <%= link_to "Edit", edit_captain_team_path(t) %>
+        </button>
+        <button type="button" class="btn btn-default">
+        <%= link_to "Delete", captain_team_path(t), method: :delete, data: {confirm: "are you sure?"} %>
+        </button>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

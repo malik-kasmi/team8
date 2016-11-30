@@ -1,16 +1,16 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-        <div class="padded text-center">
+        <div class="padded-heavy text-center">
           <h1>Welcome to Team8, brother!</h1>
         </div>
       <div class="col-xs-12 col-sm-offset-4 col-sm-8">
-        <form class="form-inline padded">
+        <form class="form-inline padded-light">
           <div class="form-group form-group-lg">
             <label for="team-city"></label>
             <input type="text" class="form-control" id="team-city" placeholder="Paris">
           </div>
-          <button type="submit" class="btn btn-default btn-lg"><%= link_to "Search!", teams_path %></button>
+          <button type="submit" class="btn btn-default btn-lg"><%= link_to "Search", teams_path, style: "text-decoration:none" %></button>
         </form>
       </div>
     </div>
