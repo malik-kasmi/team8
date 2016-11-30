@@ -42,8 +42,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to teams_path do %>
-                <i class="fa fa-th-list"></i>  <%= t(".profile", default: "All teams") %>
+              <%= link_to captain_teams_path do %>
+                <i class="fa fa-th-list"></i>  <%= t(".profile", default: "My teams") %>
               <% end %>
             </li>
             <li>
@@ -63,7 +63,7 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Create Team"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "Create Team"), "captain/teams/new", class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

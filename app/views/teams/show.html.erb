@@ -1,6 +1,6 @@
 <h1><strong><%= @team.name %></strong></h1>
 <%= @team.city %>
 <%= @team.description %>
-<%= @team.captain_id %>
+<%= @team.captain.id %>
 
 <%= link_to "Retour vers les équipes", teams_path(@team) %>
