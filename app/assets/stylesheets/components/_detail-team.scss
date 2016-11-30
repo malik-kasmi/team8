@@ -1,0 +1,21 @@
+.flexbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius : 3px;
+}
+
+.flexbox-item {
+  flex: center;
+}
+
+.team-name {
+  color:white;
+  background-size: cover;
+  background: rgba(50, 50, 50, 0.4);
+}
+
+.background {
+  background: rgba(50, 50, 50, 0.2);
+}
+
