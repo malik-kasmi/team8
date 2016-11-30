@@ -18,6 +18,9 @@
       <div class='alert'>
         <button type="button" class="btn btn-default"><%= link_to "View", captain_team_path(t) %></button>
         <button type="button" class="btn btn-default">
+        <%= link_to "Edit", edit_captain_team_path(t) %>
+        </button>
+        <button type="button" class="btn btn-default">
         <%= link_to "Delete", captain_team_path(t), method: :delete, data: {confirm: "are you sure?"} %>
         </button>
       </div>

@@ -8,6 +8,17 @@ class Captain::TeamsController < ApplicationController
     @team = Team.new
   end
 
+  def edit
+    @team = Team.find(params[:id])
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    @team.update(team_params)
+
+    redirect_to captain_team_path(@team)
+  end
+
   def create
     @team = Team.new(team_params)
     @team.captain = current_user
