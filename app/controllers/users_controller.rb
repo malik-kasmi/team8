@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    if params[:city].empty?
+    if params[:city].blank?
       @users = User.all
     else
-      @users = User.where(city: params[:city])
+      @users = User.where(city: params[:city].capitalize)
     end
   end
 

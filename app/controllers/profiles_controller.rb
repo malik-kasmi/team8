@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
 private
 
   def current_user_params
+    params[:user][:city].capitalize!
     params.require(:user).permit(:age, :city,
      :gender, :description, :favorite_position)
   end
