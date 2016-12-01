@@ -2,6 +2,18 @@
 <p><strong> City: </strong><%= @team.city %> </p>
 <p><strong> Description: </strong><%= @team.description %></p>
 
+<!-- show all players with pending invitations: -->
+<!-- for each team where id = id current team, show player id where status = pending -->
+
+<h3> Sent invitations (still pending): </h3>
+<% @players_pending = TeamUser.where(team_id: @team.id, status: "pending") %>
+<% @players_pending.each do |player| %>
+<p> Username: <%= User.where(id: player.user_id)[0].username %></p>
+<p> Email: <%= User.where(id: player.user_id)[0].email %></p>
+<br>
+<% end %>
+
+
 <div class='alert'>
       <button type="button" class="btn btn-default"><%= link_to "Home", root_path %></button>
       <button type="button" class="btn btn-default"><%= link_to "All teams", users_path %></button>

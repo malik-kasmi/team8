@@ -19,5 +19,8 @@
 
   <div class='alert'>
     <button type="button" class="btn btn-default"><%= link_to "See all players", users_path %></button>
+    <%= link_to "Invite player", class: "btn btn-default", controller: "team_users", action: "new", user_id: @user.id %>
   </div>
 </div>
+
+<!-- new_team_user_path -->

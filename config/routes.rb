@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :team_users, only: [:new, :create]
   end
 
-  resources :team_users, only: [] do
+  resources :team_users, only: [:new, :create] do
     member do
       patch :accept
       patch :reject

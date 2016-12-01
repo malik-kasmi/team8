@@ -1,0 +1,17 @@
+<h2>Invite a new player!</h2>
+
+<%= simple_form_for(@team_user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :team_id, collection: @captain_teams, autofocus: true %>
+    <%= f.input :user_id, value: @team_user.user_id,autofocus: true, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Invite" %>
+  </div>
+<% end %>
+
+<!-- get teams for which current_user is captain -->
+<!-- teams.where(captain_id = current_user.id) -->
