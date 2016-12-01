@@ -17,6 +17,24 @@ class TeamUsersController < ApplicationController
     redirect_to team_path(@team[0].id)
   end
 
+  def accept
+    @teamuser = TeamUser.find(params[:id])
+    @teamuser.update(status: "accept")
+    redirect_to profile_path
+  end
+
+  def reject
+    @teamuser = TeamUser.find(params[:id])
+    @teamuser.update(status: "reject")
+    redirect_to profile_path
+  end
+
+  def leave
+    @teamuser = TeamUser.find(params[:id])
+    @teamuser.update(status: "leave")
+    redirect_to profile_path
+  end
+
 private
 
   def team_user_params

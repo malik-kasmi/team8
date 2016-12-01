@@ -19,6 +19,20 @@
     </div>
     <br>
 
+  <!-- invitations pending -->
+  <div>
+  <p> Invitation from teams: </p>
+
+    <% @pending_teamusers.each do |teamuser| %>
+    <p><%= Team.where(id: teamuser.team_id)[0].name %></p>
+    <!-- accept invitation  -->
+    <%= link_to "Accept", accept_team_user_path(teamuser), method: :patch, class: "btn btn-default" %>
+    <!-- reject invitation -->
+    <%= link_to "Reject", reject_team_user_path(teamuser), method: :patch, class: "btn btn-default" %>
+    <% end %>
+  </div>
+
+
     <div class='alert'>
       <%= link_to "Home", root_path, class:"btn btn-default"%>
       <%= link_to "All players", users_path, class:"btn btn-default"%>

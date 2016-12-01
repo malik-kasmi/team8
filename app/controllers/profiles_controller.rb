@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user
+    @pending_teamusers = TeamUser.where(user_id: @profile.id, status: "pending")
   end
 
 private

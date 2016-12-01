@@ -6,7 +6,6 @@
 <!-- for each team where id = id current team, show player id where status = pending -->
 
 <h3> Sent invitations (still pending): </h3>
-<% @players_pending = TeamUser.where(team_id: @team.id, status: "pending") %>
 <% @players_pending.each do |player| %>
 <p> Username: <%= User.where(id: player.user_id)[0].username %></p>
 <p> Email: <%= User.where(id: player.user_id)[0].email %></p>
