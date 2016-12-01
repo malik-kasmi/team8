@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    if params[:city].empty?
+      @users = User.all
+    else
+      @users = User.where(city: params[:city])
+    end
   end
 
   def show
