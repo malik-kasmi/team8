@@ -1,7 +1,7 @@
 class Captain::TeamsController < ApplicationController
 
   def index
-    @teams = Team.all
+    @teams = Team.where(captain: current_user)
   end
 
   def new
