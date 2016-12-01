@@ -29,6 +29,7 @@ class Captain::TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @players_pending = TeamUser.where(team_id: @team.id, status: "pending")
   end
 
   def destroy
