@@ -1,6 +1,22 @@
 <div class="text-center padded-light">
   <h1> All players </h1>
 </div>
+<div class="container">
+      <div class="col-xs-4 col-sm-12">
+        <form class="form-inline padded-light">
+          <div class="form-group form-group-lg">
+            <label for="team-city"></label>
+              <%= form_tag users_path, :method => 'get' do %>
+                <p>
+                  <%= text_field_tag :city%>
+                  <%= submit_tag "Search", class:"btn btn-default"%>
+                </p>
+              <% end %>
+          </div>
+        </form>
+      </div>
+</div>
+
 
 <div>
   <% @users.each do |u| %>
