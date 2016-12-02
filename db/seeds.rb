@@ -1,11 +1,12 @@
+TeamUser.destroy_all
 Team.destroy_all
 User.destroy_all
 
-paul = User.create!(username: "paul", email: "paul@team8.com", password: "paul123")
-malik = User.create!(username: "malik", email: "malik@team8.com", password: "malik123")
-jordan = User.create!(username: "jordan", email: "jordan@team8.com", password: "jordan123")
-johnson = User.create!(username: "johnson", email: "johnson@team8.com", password: "johnson123")
-bob = User.create!(username: "bob", email: "bob@team8.com", password: "bob123")
+paul = User.create!(username: "paul", email: "paul@team8.com", city: "Le Creusot", age: "26", gender: "male", password: "paul123")
+malik = User.create!(username: "malik", email: "malik@team8.com", city: "Lyon", age: "17", gender: "male", password: "malik123")
+jordan = User.create!(username: "jordan", email: "jordan@team8.com", city: "Chicago", age: "45", gender: "male", password: "jordan123")
+johnson = User.create!(username: "johnson", email: "johnson@team8.com", city: "Washington", age: "51", gender: "male", password: "johnson123")
+bob = User.create!(username: "bob", email: "bob@team8.com", city: "Toronto", age: "34", password: "bob123")
 
 
 team_1 = Team.new(name: "Paul's team", city: "Paris", description: "Super equipe", captain: paul)
