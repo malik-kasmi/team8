@@ -4,23 +4,28 @@
     <h2> MY PROFILE </h2>
   </div>
 
-    <div class = "container bg-grey padded rounded test">
-    <%= image_tag "logo.png", class: "thumbnail", size: "150x150"%>
-      <div>
-        <p><strong>Username: </strong> <%= @profile.username %> </p>
-        <p><strong>Age:</strong> <%= @profile.age %> </p>
-        <p><strong>City:</strong> <%= @profile.city %> </p>
-      </div>
-      <div>
-        <p><strong>Gender: </strong><%= @profile.gender %> </p>
-        <p><strong>Description: </strong><%= @profile.description %> </p>
-        <p><strong>Favorite position: </strong><%= @profile.favorite_position %> </p>
+    <div class = "container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+        <div class="badge-bordered padded-light rounded bg-card-user xxx">
+          <div class="padded-light">
+            <%= image_tag "logo.png", class: "thumbnail", size: "150x150"%>
+          </div>
+          <div class="padded-light">
+            <p><strong>Username: </strong> <%= @profile.username %> </p>
+            <p><strong>Age:</strong> <%= @profile.age %> </p>
+            <p><strong>City:</strong> <%= @profile.city %> </p>
+            <p><strong>Gender: </strong><%= @profile.gender %> </p>
+            <p><strong>Description: </strong><%= @profile.description %> </p>
+            <p><strong>Favorite position: </strong><%= @profile.favorite_position %> </p>
+          </div>
+        </div>
       </div>
     </div>
-    <br>
+  </div>
 
   <!-- invitations pending -->
-  <div>
+  <div class="padded-light">
   <p> Invitation from teams: </p>
 
     <% @pending_teamusers.each do |teamuser| %>
@@ -38,4 +43,3 @@
       <%= link_to "All players", users_path, class:"btn btn-default"%>
       <%= link_to "Edit profile", edit_profile_path, class:"btn btn-default"%>
   </div>
-</div>
