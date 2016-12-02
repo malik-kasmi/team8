@@ -48,3 +48,10 @@
   background-size: cover;
   color: white;
 }
+
+.background-parquet {
+  background-image: asset-url("parquet.jpg");
+  background-size: cover;
+  background-position: center, center;
+  background-attachment: fixed;
+}

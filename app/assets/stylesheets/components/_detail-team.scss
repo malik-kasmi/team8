@@ -3,6 +3,7 @@
   justify-content: space-around;
   align-items: center;
   border-radius : 3px;
+  color: white;
 }
 
 .flexbox-item {
@@ -10,12 +11,18 @@
 }
 
 .team-name {
-  color:white;
-  background-size: cover;
-  background: rgba(50, 50, 50, 0.4);
+  color: white;
 }
 
-.background {
-  background: rgba(50, 50, 50, 0.2);
+.background-team {
+  background-color: rgba(50, 50, 50, 0.5);
+  border-radius: 5px;
 }
 
+.detail {
+  color: white;
+}
+
+.content-page {
+  border-radius : 10px;
+}
