@@ -7,6 +7,7 @@ end
 
 def show
   @team = Team.find(params[:id])
+  @players_accept = TeamUser.where(team_id: @team.id, status: "accept")
 end
 
 # def new
