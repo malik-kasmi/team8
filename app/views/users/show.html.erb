@@ -26,7 +26,7 @@
 
   <div class='alert'>
     <%= link_to "See all players", users_path, class: "btn btn-default" %>
-    <%= link_to "Invite player", class: "btn btn-default", controller: "team_users", action: "new", user_id: @user.id %>
+    <%= link_to "Invite player", {controller: "team_users", action: "new", user_id: @user.id }, class: "btn btn-success" %>
   </div>
 
 <!-- new_team_user_path -->
