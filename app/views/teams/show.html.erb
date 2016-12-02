@@ -1,46 +1,30 @@
 
-<div class="container background">
-<div content-page>
-  <div class="team-name text-center">
-    <h1><strong><%= @team.name %></strong></h1>
+<div class="container background-team">
+  <div class="content-page">
+    <div class="team-name text-center">
+      <h1><strong><%= @team.name %></strong></h1>
+    </div>
+    <div class="detail">
+      <ul class="list-unstyled">
+        <li><strong> Ville: </strong><%= @team.city %></li>
+        <li><strong> Capitaine: </strong><%= @team.captain_id %></li>
+        <li><strong> Description: </strong><%= @team.description %></li>
+      </ul>
+
+      <section class="page-content padded-light">
+        <div class="flexbox">
+          <% @players_accept.each do |player| %>
+            <div class ="flexbox-item">
+              <%= image_tag "logo.png", class:"avatar avatar-large" %>
+                <p> Name: <%= User.find(player.user_id).username %></p>
+                <br>
+            </div>
+              <% end %>
+        </div>
+  <%= link_to "Retour vers les équipes", teams_path(@team), class:"btn btn-default text-center" %>
+      </section>
+    </div>
   </div>
-  <div class="detail">
-    <ul class="list-unstyled">
-      <li><strong> Ville: </strong><%= @team.city %></li>
-      <li><strong> Capitaine: </strong><%= @team.captain_id %></li>
-      <li><strong> Description: </strong><%= @team.description %></li>
-    </ul>
-
-    <section class="page-content">
-      <div class="flexbox">
-        <div class ="flexbox-item">
-          <img> <%= image_tag "logo.png", class:"avatar avatar-large" %></img>
-          <p><strong>Joueur 1</strong></p>
-          <p>30 ans</p>
-        </div>
-
-        <div class ="flexbox-item">
-          <img> <%= image_tag "logo.png", class:"avatar avatar-large" %></img>
-          <p><strong>Joueur 2</strong></p>
-          <p>25 ans</p>
-        </div>
-
-        <div class ="flexbox-item">
-          <img> <%= image_tag "logo.png", class:"avatar avatar-large" %></img>
-          <p><strong>Joueur 3</strong></p>
-          <p>28 ans</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <% @players_accept.each do |player| %>
-<p> Email: <%= User.find(player.user_id).username %></p>
-<br>
-<% end %>
-
-<%= link_to "Retour vers les équipes", teams_path(@team), class:"btn btn-success btn-sm text-center" %>
-</div>
 </div>
 
 
