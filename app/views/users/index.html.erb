@@ -1,9 +1,10 @@
 <div class="text-center padded-light">
   <h1> All players </h1>
 </div>
+
 <div class="container">
       <div class="col-xs-4 col-sm-12">
-        <form class="form-inline padded-light">
+        <form class="form-inline">
           <div class="form-group form-group-lg">
             <label for="team-city"></label>
               <%= form_tag users_path, :method => 'get' do %>
@@ -17,31 +18,23 @@
       </div>
 </div>
 
-
-<div>
+<div class="container">
+  <div class="row padded">
   <% @users.each do |u| %>
-    <div class="badge-bordered padded-light rounded bg-grey">
-      <div class="test">
-        <div>
-          <%= image_tag "logo.png",size: "100x100" %>
-        </div>
-        <div>
-          <p><strong>Username: </strong><%= u.username %> </p>
-          <p><strong>Email: </strong><%= u.email %> </p>
-          <p><strong>Age: </strong><%= u.age %> </p>
-        </div>
-        <div>
-          <p><strong>City: </strong><%= u.city %> </p>
-          <p><strong>Gender: </strong><%= u.gender %> </p>
-          <p><strong>Description: </strong><%= u.description %> </p>
-          <p><strong>Favorite position: </strong><%= u.favorite_position %> </p>
-        </div>
-      </div>
-      <div class='alert'>
+    <div class="col-xs-12 col-sm-4">
+      <div class="padded-light">
+      <div class="badge-bordered padded-light rounded bg-card-user text-center">
+        <%= image_tag "logo.png",size: "100x100" %>
+        <p><strong>Username: </strong><%= u.username %> </p>
+        <p><strong>City: </strong><%= u.city %> </p>
+        <p><strong>Gender: </strong><%= u.gender %> </p>
+      <div>
         <%= link_to "View", user_path(u), class:"btn btn-default" %>
+        <%= link_to "Invite", user_path(u), class:"btn btn-default" %>
       </div>
     </div>
-
+    </div>
+  </div>
   <% end %>
-
+</div>
 </div>
