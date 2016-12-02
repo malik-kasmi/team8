@@ -34,6 +34,11 @@
     </section>
   </div>
 
+  <% @players_accept.each do |player| %>
+<p> Email: <%= User.find(player.user_id).username %></p>
+<br>
+<% end %>
+
 <%= link_to "Retour vers les équipes", teams_path(@team), class:"btn btn-success btn-sm text-center" %>
 </div>
 </div>
