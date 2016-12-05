@@ -4,24 +4,24 @@
 
 <div>
   <div class="card-padded">
-    <div class="container">
-        <div class="row">
+    <div class="container ">
+        <div class="row ">
           <div class="col-xs-12 col-sm-12">
       <% @teams.each do |t| %>
-            <div class="card" style="background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.8))">
-              <div class="card-category">
+            <div class="card badge-bordered" style="background: $light-grey">
+              <div class="card-category ">
                 <%= t.name %>
               </div>
               <div class="card-description">
                 <h2><%= t.city %></h2>
               </div>
-              <%= image_tag "logo.png",size: "100x100", class:"card-user avatar avatar-large" %>
+              <%= image_tag "logo.png", class:"card-user avatar avatar-large" %>
             </div>
 
             <div class='alert'>
-              <%= link_to "View", captain_team_path(t), class:"btn btn-default" %>
-              <%= link_to "Edit", edit_captain_team_path(t), class:"btn btn-default" %>
-              <%= link_to "Delete", captain_team_path(t), method: :delete, data: {confirm: "are you sure?"}, class:"btn btn-default" %>
+              <%= link_to "View", captain_team_path(t), class:"button-orange" %>
+              <%= link_to "Edit", edit_captain_team_path(t), class:"button-orange" %>
+              <%= link_to "Delete", captain_team_path(t), method: :delete, data: {confirm: "are you sure?"}, class:"button-orange" %>
             </div>
       <% end %>
           </div>

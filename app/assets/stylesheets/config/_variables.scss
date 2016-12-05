@@ -4,8 +4,9 @@
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 $base-font: "Roboto", "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Roboto", "Raleway", "Helvetica", "sans-serif";
+$header-font: "Oswald", "Raleway", "sans-serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -25,12 +26,14 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
-
-$red: #EE5F5B;
-$blue: #469AE0;
-$yellow: #FDB631;
-$orange: #E67E22;
-$green: #32B796;
-$gray: #000000;
-$light-grey: #F4F0F0;
+$brand-color: #E76A49;
+$black: #000000;
+$white: #FFFFFF;
+$brown: #996F68;
+$orange: #D74D0C;
+$gray: #232323;
+$light-grey: #3f3a3b;
+$blue: blue;
+$green: green;
+$yellow: yellow;
+$red: red;

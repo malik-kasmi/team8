@@ -53,8 +53,43 @@ background: $light-grey ;
 }
 
 .background-parquet {
-  background-image: asset-url("parquet.jpg");
+  background-color: $gray;
+  // background-image: asset-url("parquet.jpg");
   background-size: cover;
   background-position: center, center;
   background-attachment: fixed;
+}
+
+// button call-to action
+.button-orange {
+  background-color: transparent;
+  border-color: $orange;
+  color: $white;
+}
+
+.button-orange:hover {
+  background-color: #ff6000;
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-orange-go {
+border: 1px solid;
+border-radius: 5px;
+cursor: pointer;
+display: inline-block;
+font-size: 13.6px;
+font-weight: 400;
+letter-spacing: 1.6px;
+letter-spacing: .1rem;
+line-height: 1.43;
+margin-bottom: 0;
+padding: 12px 26px;
+text-align: center;
+transition-property: all;
+transition-duration: 0.2s;
+transition-timing-function: linear;
+transition-delay: 0s;
+vertical-align: middle;
+white-space: nowrap;
 }

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-
+  get '/styleguide', to: 'pages#styleguide'
   devise_for :users
 
   resources :teams, only: [:index, :show]

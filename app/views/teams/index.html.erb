@@ -2,11 +2,11 @@
 <h1 class="text-center"><strong>Les équipes</strong></h1>
 <ul>
   <% @teams.each do |team| %>
- <div class="card-padded">
-      <div class="container">
+ <div class="card-padded ">
+      <div class="container ">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
-            <div class="card">
+            <div class="card badge-bordered">
               <div class="card-category"><%= team.name %></div>
               <div class="card-description">
                 <h3><%= team.city%></h3>
