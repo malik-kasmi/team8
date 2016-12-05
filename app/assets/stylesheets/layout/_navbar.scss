@@ -1,13 +1,19 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: rgba(10, 10, 10, 0.3);
+  color: $white;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 1030;
+  width: 100%;
 }
 
 /* Optional class to fix the navbar on top */
@@ -21,7 +27,8 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 120px;
+  opacity: 1;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -54,15 +61,15 @@
   padding: 0 20px;
   border-radius: 20em;
   line-height: 40px;
-  background-color: #D23333;
-  color: white;
+  background-color: $orange;
+  color: $white;
   font-size: 14px;
-  border: 2px solid #D23333;
+  border: 2px solid $orange;
 }
 .navbar-wagon-button:hover {
   color: white;
-  background: #D23333;
-  border-color: #ac2626;
+  background: $brand-color;
+  border-color: $brand-color;
 }
 
 /* Navbar search form */
@@ -128,4 +135,21 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+
+.nav-black {
+  background-color: $black;
+  color: $white;
+  opacity: 0.5;
+  left: 0px;
+  top: 0px;
+  position: fixed;
+  min-height: 64px;
+  width: 100%;
+  height: auto;
+  font-size: 78rem;
+  font-weight: 300;
+  letter-spacing: .12rem;
+  line-height: 1.7rem;
 }
