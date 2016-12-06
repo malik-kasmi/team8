@@ -1,24 +1,31 @@
 
-<h1 class="text-center"><strong>Les équipes</strong></h1>
-<ul>
-  <% @teams.each do |team| %>
- <div class="card-padded ">
-      <div class="container ">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12">
-            <div class="card badge-bordered">
-              <div class="card-category"><%= team.name %></div>
-              <div class="card-description">
-                <h3><%= team.city%></h3>
-              </div>
-              <%= image_tag "logo.png", class:"card-user avatar avatar-large" %>
-              <%= link_to "", team_path(team), class:"card-link" %>
-              <!-- <a class="card-link" href="team_path(team)" ></a> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
-</ul>
+<div class="banner-my-team " style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%;">
+  <div class="banner-content">
+    <h1 class="text-center padded-light"><strong>Mes équipes</strong></h1>
+    <p>Défie une équipe en créant un match et améliore tes statistiques</p>
+  </div>
+</div>
 
+<div class="padded">
+<div class="container background-team badge-bordered">
+  <div class="content-page ">
+    <div class="team-name text-center">
+      <h1>
+      <% @teams.each do |team| %>
+      <%= team.name %>
+        <li><strong> Ville: </strong><%= team.city %></li>
+        <li><strong> Capitaine: </strong><%= team.captain_id %></li>
+        <li><strong> Description: </strong><%= team.description %></li>
+        <%end%>
+      </h1>
+    </div>
+    <div class="detail">
+      <ul class="list-unstyled">
+      </ul>
+
+     <!--  -->
+    </div>
+  </div>
+</div>
+
+</div>

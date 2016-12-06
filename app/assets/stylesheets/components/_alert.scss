@@ -5,11 +5,17 @@
 .alert {
   margin: 0;
   text-align: center;
-  color: white;
+  color: $white;
+  position: absolute;
+  top: 0px;
+  height: 70px;
+  width: 100%;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+  color: $white;
+  padding-top: 2px;
 }
