@@ -45,10 +45,10 @@ background: $light-grey ;
 }
 
 .wrapper {
-  width: 100%;
-  height: 600px;
-  background-image: asset-url("basketball1.jpg");
+  // width: 100%;
+  height: 700px;
   background-size: cover;
+  background-image: asset-url("basketball1.jpg");
   color: white;
 }
 
