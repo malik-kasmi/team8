@@ -1,7 +1,10 @@
 
 <h1 class="text-center"><strong>Les équipes</strong></h1>
 <ul>
-  <% @teams.each do |team| %>
+  <% if (current_user.joined_teams.nil? && current_user.teams.nil?) %>
+  <p>you have no teams</p>
+  <% else %>
+  <% (current_user.joined_teams + current_user.teams).each do |team| %>
  <div class="card-padded ">
       <div class="container ">
         <div class="row">
@@ -19,6 +22,7 @@
         </div>
       </div>
     </div>
+    <% end %>
     <% end %>
 </ul>
 

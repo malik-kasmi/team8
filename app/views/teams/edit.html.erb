@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-offset-4 col-sm-4">
       <h1> Edit my team </h1>
-      <%= simple_form_for([:captain, @team]) do |f| %>
+      <%= simple_form_for(@team) do |f| %>
         <%= f.input :name %>
         <%= f.input :city %>
         <%= f.input :description %>

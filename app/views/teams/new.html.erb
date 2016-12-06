@@ -4,7 +4,7 @@
       <div class="padded-light bg-card-user registration-margin">
         <h2>Create your team</h2>
 
-        <%= simple_form_for([:captain, @team]) do |f| %>
+        <%= simple_form_for(@team) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">

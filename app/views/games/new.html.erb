@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+      <div class="padded-light bg-card-user registration-margin">
+        <h2>Create your game</h2>
+        <% @teams.each do |t| %>
+        <div>
+        <%= t.name %>
+        <%= link_to "Send invitation", team_games_path(game: {team2_id: t.id, team1_id: params[:team_id]}), method: :post %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

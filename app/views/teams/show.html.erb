@@ -1,31 +1,33 @@
+<h1><strong>My team: <%= @team.name %></strong></h1>
+<p><strong> City: </strong><%= @team.city %> </p>
+<p><strong> Description: </strong><%= @team.description %></p>
 
-<div class="container background-team badge-bordered">
-  <div class="content-page ">
-    <div class="team-name text-center">
-      <h1><strong><%= @team.name %></strong></h1>
-    </div>
-    <div class="detail">
-      <ul class="list-unstyled">
-        <li><strong> Ville: </strong><%= @team.city %></li>
-        <li><strong> Capitaine: </strong><%= @team.captain_id %></li>
-        <li><strong> Description: </strong><%= @team.description %></li>
-      </ul>
+<!-- show all players with pending invitations: -->
+<!-- for each team where id = id current team, show player id where status = pending -->
 
-      <section class="page-content padded-light">
-        <div class="flexbox">
-          <% @players_accept.each do |player| %>
-            <div class ="flexbox-item">
-              <%= image_tag "logo.png", class:"avatar avatar-large" %>
-                <p> Name: <%= User.find(player.user_id).username %></p>
-                <br>
-            </div>
-              <% end %>
-        </div>
-  <%= link_to "Retour vers les équipes", teams_path(@team), class:"button-orange button-orange-go" %>
-      </section>
-    </div>
+<h3> Sent invitations (still pending): </h3>
+<% @players_pending.each do |player| %>
+<p> Username: <%= User.where(id: player.user_id)[0].username %></p>
+<p> Email: <%= User.where(id: player.user_id)[0].email %></p>
+<br>
+<% end %>
+
+<!-- Games request pending -->
+<h3>Games requests pending</h3>
+<% @team.games.each do |game| %>
+  <div>
+    <% if game.status == "pending" %>
+      Opponent: <%= Team.find(game.team2_id).name %>
+    <!-- accept invitation  -->
+    <%= link_to "Accept game", "#", method: :patch, class: "btn btn-default" %>
+    <!-- reject invitation -->
+    <%= link_to "Reject game", "#", method: :patch, class: "btn btn-default" %>
+
+    <% end %>
   </div>
-</div>
+<% end %>
 
+<div class='alert'>
+  <%= link_to "Back", teams_path, class:"btn btn-default" %>
 
-
+  </div>
