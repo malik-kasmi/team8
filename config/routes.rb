@@ -3,9 +3,18 @@ Rails.application.routes.draw do
   get '/styleguide', to: 'pages#styleguide'
   devise_for :users
 
-  resources :teams, only: [:index, :show]
+  resources :teams, only: [:new, :create, :index, :show] do
+    resources :games, only: [:new, :create]
+  end
 
-  resources :users, only: [ :index, :show] do
+  resources :teams, only: [] do
+    member do
+      patch :accept
+      patch :reject
+    end
+  end
+
+  resources :users, only: [:new, :create] do
     resources :team_users, only: [:new, :create]
   end
 
@@ -19,7 +28,4 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show, :edit, :update]
 
-  namespace :captain do
-    resources :teams
-  end
 end
