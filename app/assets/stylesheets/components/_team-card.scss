@@ -2,7 +2,7 @@
 // .card {
 //   height: 175px;
 //   text-shadow: 0 1px 3px rgba(50, 50, 50, 0.6);
-//   background-color: $light-grey;
+//   background-color: $gray;
 //   color: $white;
 //   position: relative;
 //   border-radius: 5px;
@@ -54,6 +54,7 @@
 
 .banner-my-team {
   background-image: asset-url("basket-court.jpg");
+  box-shadow: 0 2px 0px 0 rgba($orange,0.7),0 1px 0 0 rgba($orange,0.3);
   color: $orange;
   text-align: center;
   min-height:100%;
@@ -90,19 +91,78 @@
   flex: center;
 }
 
-.team-name {
-  color: white;
+
+.card-team-gray {
+  height: 100%;
+  text-shadow: 0 1px 3px rgba(50, 50, 50, 0.6);
+  background-color: $gray;
+  background-size: cover;
+  color: $white;
+  width: 100%;
+  box-shadow: 0 2px 0px 0 rgba($orange,0.7),0 1px 0 0 rgba($orange,0.3);
 }
 
-.background-team {
-  background-color: $light-grey;
-  border-radius: 5px;
+//TABLEAU
+
+
+.container-table th h1 {
+    font-weight: bold;
+    font-size: 1em;
+  text-align: center;
+  color: $white;
 }
 
-.detail {
-  color: white;
+.container-table td {
+    font-weight: normal;
+    font-size: 1em;
 }
 
-.content-page {
-  border-radius : 10px;
+.container-table {
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+  display: table;
+  padding: 0 0 5em 0;
+}
+
+.container-table td, .container-table th {
+    padding-bottom: 1%;
+    padding-top: 1%;
+  padding-left:2%;
+}
+
+/* Background-color of the odd rows */
+.container-table tr:nth-child(odd) {
+    background-color: $white;
+}
+
+/* Background-color of the even rows */
+.container-table tr:nth-child(even) {
+    background-color: rgba($gray, 0.2);
+}
+
+.container-table th {
+    background-color: $gray;
+}
+
+.container-table td:first-child { color: $black; }
+
+.container-table tr:hover {
+  background-color: $orange;
+  color: $black;
+  font-weight: bold;
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+  box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
 }

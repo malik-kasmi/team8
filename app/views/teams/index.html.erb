@@ -1,29 +1,22 @@
-
-
 <div class="banner-my-team " style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%;">
   <div class="banner-content">
     <h1 class="text-center padded-light"><strong>Mes équipes</strong></h1>
     <p>Défie une équipe en créant un match et améliore tes statistiques</p>
   </div>
 </div>
-
-
-
-<h1 class="text-center"><strong>Les équipes</strong></h1>
-
+  <div>
   <% if (current_user.joined_teams.nil? && current_user.teams.nil?) %>
   <p>you have no teams</p>
   <% else %>
   <% (current_user.joined_teams + current_user.teams).each do |team| %>
- <div class="card-padded ">
-      <div class="container ">
+      <div class="card-team-gray">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
-            <div class="card badge-bordered">
-              <div class="card-category"><%= team.name %></div>
+
+              <div class="card-category text-center"> <h3> <%= team.name %></h3></div>
               <div class="card-description">
-                <h3><%= team.city%></h3>
-                  <ul>
+
+                  <ul class="list-unstyled">
                     <li><strong> Ville: </strong><%= team.city %></li>
                     <li><strong> Capitaine: </strong><%= team.captain_id %></li>
                     <li><strong> Description: </strong><%= team.description %></li>
@@ -34,10 +27,35 @@
               <!-- <a class="card-link" href="team_path(team)" ></a> -->
             </div>
           </div>
+          <button class="button-orange button-orange-go text-center">Créer un match</button>
         </div>
-      </div>
+
+    <% end %>
+    <% end %>
     </div>
-    <% end %>
-    <% end %>
 
-
+<h2 class="text-center">Tableau des résultats</h2>
+<table class="container-table">
+  <thead>
+    <tr>
+      <th><h1>Résultat</h1></th>
+      <th><h1>Score</h1></th>
+      <th><h1>Adversaire</h1></th>
+      <th><h1>Date</h1></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Victoire</td>
+      <td>88 - 120</td>
+      <td>Miami Heat</td>
+      <td>11/08/2016</td>
+    </tr>
+    <tr>
+      <td>Defaite</td>
+      <td>90 - 50</td>
+      <td>Pacers</td>
+      <td>12/05/2015</td>
+    </tr>
+  </tbody>
+</table>
