@@ -1,9 +1,24 @@
+
+<div class="padded">
+  <div class="container background-team badge-bordered">
+    <div class="content-page ">
+     <div class="team-name text-center">
+      <h1><strong><%= @team.name %></strong></h1>
+    </div>
+    <div class="detail">
+      <ul class="list-unstyled">
+        <li><strong> Ville: </strong><%= @team.city %></li>
+        <li><strong> Capitaine: </strong><%= @team.captain_id %></li>
+        <li><strong> Description: </strong><%= @team.description %></li>
+      </ul>
+
 <h1><strong>My team: <%= @team.name %></strong></h1>
 <p><strong> City: </strong><%= @team.city %> </p>
 <p><strong> Description: </strong><%= @team.description %></p>
 
 <!-- show all players with pending invitations: -->
 <!-- for each team where id = id current team, show player id where status = pending -->
+
 
 <h3> Sent invitations (still pending): </h3>
 <% @players_pending.each do |player| %>
@@ -23,11 +38,15 @@
     <!-- reject invitation -->
     <%= link_to "Reject game", "#", method: :patch, class: "btn btn-default" %>
 
+
+</div>
+
     <% end %>
   </div>
 <% end %>
 
 <div class='alert'>
   <%= link_to "Back", teams_path, class:"btn btn-default" %>
+
 
   </div>
