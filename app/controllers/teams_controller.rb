@@ -1,47 +1,44 @@
 class TeamsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :index, :show]
 
 
   def index
-    @teams = Team.all
-  end
-
-  def show
-    @team = Team.find(params[:id])
-    @players_accept = TeamUser.where(team_id: @team.id, status: "accept")
-    @players_pending = TeamUser.where(team_id: @team.id, status: "pending")
+    # @teams = Team.all
+    @teams = policy_scope(Team)
   end
 
   def new
     @team = Team.new
+    authorize @team
   end
 
   def create
     @team = Team.new(team_params)
+    authorize @team
     @team.captain = current_user
     @team.save
+    TeamUser.create(user: @team.captain, team: @team, requester: @team.captain, status: "accept")
 
     redirect_to teams_path
   end
 
-  def edit
-    @team = Team.find(params[:id])
-  end
+  # def edit
+  #   @team = Team.find(params[:id])
+  # end
 
-  def update
-    @team = Team.find(params[:id])
-    @team.update(team_params)
+  # def update
+  #   @team = Team.find(params[:id])
+  #   @team.update(team_params)
 
-    redirect_to teams_path
-  end
+  #   redirect_to teams_path
+  # end
 
 
-  def destroy
-    @team = Team.find(params[:id])
-    @team.destroy
+  # def destroy
+  #   @team = Team.find(params[:id])
+  #   @team.destroy
 
-    redirect_to teams_path
-  end
+  #   redirect_to teams_path
+  # end
 
 private
 

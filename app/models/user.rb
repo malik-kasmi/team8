@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :teams, foreign_key: 'captain_id' # as captain
+  has_many :managed_teams, class_name: "Team", foreign_key: 'captain_id' # as captain
 
   has_many :team_users
   has_many :joined_teams, through: :team_users, source: :team # as player that joined teams
