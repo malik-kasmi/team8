@@ -7,12 +7,12 @@
         <%= simple_form_for(@team) do |f| %>
         <%= f.error_notification %>
           <div id="container-input">
-            <%= f.input :name, label: "Nom de l'équipe", required: true, autofocus: true %>
-            <%= f.input :city, label: "Ville", required: true, autofocus: true %>
-            <%= f.input :description, autofocus: true %>
+            <%= f.input :name, label: "Nom de l'équipe  🏐", required: true, autofocus: true, input_html: { class: 'form-input' } %>
+            <%= f.input :city, label: "Ville", required: true, autofocus: true, input_html: { class: 'form-input' } %>
+            <%= f.input :description, autofocus: true, input_html: { class: 'form-input' } %>
           </div>
           <div class="form-actions">
-                <%= f.button :submit, "Je crée mon équipe", class:"button-input button-orange button-orange-go" %>
+                <%= f.button :submit, "Je crée mon équipe", class:"button-input button-black" %>
           </div>
         <% end %>
     </div>

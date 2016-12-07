@@ -30,10 +30,11 @@
   position: absolute;
   top: 0%;
   right: 0%;
-  background-image: linear-gradient(to right, #B4B3AD, #EAE4E1);
+  background-image: linear-gradient(to left, $black, $gray);
   background-size: cover;
   border-radius: 0%;
   z-index: 1;
+  color: rgba($white, 0.9);
 }
 
 
@@ -46,26 +47,40 @@
   z-index: 3;
 }
 
-#container-input{
-
+#container-input {
   margin-top: 3%;
   margin-left: 5%;
   padding-right: 5%;
-
 }
 
-#container-input:hover {
+#container-input:focus {
   border-color: $orange;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba($orange, 0.6);
 }
 
-.button-input{
-
+.button-input {
   display: block;
   margin-left: 35%;
   margin-top: 15%;
 }
 
+.form-input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba($orange, 0.5);
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+}
 
+.form-input:focus {
+  border-bottom: 2px solid $orange;
+  box-shadow: inset 0 2px 2px -2px rgba($white, 0.075), 0 4px 2px -2px rgba($orange, 1);
+  border: 0;
+  color: white;
+  font-style: $base-font;
+}
 
 
 
