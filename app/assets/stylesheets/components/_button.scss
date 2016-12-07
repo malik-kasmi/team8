@@ -1,0 +1,35 @@
+// button call-to action
+.button-orange {
+  background-color: rgba($white, 0.6);
+  border-color: $orange;
+  color: $orange;
+  font-family: $header-font;
+  font-size: 80%;
+}
+
+.button-orange:hover {
+  background-color: #ff6000;
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-orange-go {
+border: 1px solid;
+border-radius: 5px;
+cursor: pointer;
+display: inline-block;
+font-size: 13.6px;
+font-weight: 400;
+letter-spacing: 1.6px;
+letter-spacing: .1rem;
+line-height: 1.43;
+margin-bottom: 0;
+padding: 12px 26px;
+text-align: center;
+transition-property: all;
+transition-duration: 0.2s;
+transition-timing-function: linear;
+transition-delay: 0s;
+vertical-align: middle;
+white-space: nowrap;
+}

@@ -1,59 +1,8 @@
-
-// .card {
-//   height: 175px;
-//   text-shadow: 0 1px 3px rgba(50, 50, 50, 0.6);
-//   background-color: $light-grey;
-//   color: $white;
-//   position: relative;
-//   border-radius: 5px;
-// }
-// .card-user {
-//   position: absolute;
-//   right: 10px;
-//   top: 10px;
-// }
-// .card-category {
-//   position: absolute;
-//   top: 65px;
-//   left: 45%;
-//   font-size: 30px;
-//   text-transform: uppercase;
-
-// }
-// .card-description {
-//   position: absolute;
-//   bottom: 10px;
-//   left: 10px;
-// }
-// .card-description h2 {
-//   font-size: 30px;
-
-// }
-
-// .card-link {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   width: 100%;
-//   z-index:2;
-//   background-color: rgba(10, 10, 10, 0.1);
-//   background-size: cover;
-//   opacity: 0.1;
-// }
-// .card-link:hover{
-//   opacity: 1;
-// }
-
-// .card-padded {
-//   padding-top: 3em;
-//   padding-bottom: 3em;
-// }
-
 // Banner My teams
 
 .banner-my-team {
   background-image: asset-url("basket-court.jpg");
+  box-shadow: 0 2px 0px 0 rgba($orange,0.7),0 1px 0 0 rgba($orange,0.3);
   color: $orange;
   text-align: center;
   min-height:100%;
@@ -90,19 +39,14 @@
   flex: center;
 }
 
-.team-name {
-  color: white;
+
+.card-team-gray {
+  height: 100%;
+  text-shadow: 0 1px 3px rgba(50, 50, 50, 0.6);
+  background-image: linear-gradient(to right, $gray, #AFAFAF);
+  background-size: cover;
+  color: $white;
+  width: 100%;
+  box-shadow: 0 2px 0px 0 rgba($orange,0.7),0 1px 0 0 rgba($orange,0.3);
 }
 
-.background-team {
-  background-color: $light-grey;
-  border-radius: 5px;
-}
-
-.detail {
-  color: white;
-}
-
-.content-page {
-  border-radius : 10px;
-}

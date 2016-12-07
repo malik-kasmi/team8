@@ -1,7 +1,7 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: rgba(10, 10, 10, 0.5);
+  background: rgba(10, 10, 10, 0.8);
   color: $white;
   transition: all 0.3s ease;
   display: flex;
@@ -139,19 +139,3 @@
   border-top: 1px solid $orange;
 }
 
-
-// .nav-black {
-//   background-color: $black;
-//   color: $white;
-//   opacity: 0.5;
-//   left: 0px;
-//   top: 0px;
-//   position: fixed;
-//   min-height: 64px;
-//   width: 100%;
-//   height: auto;
-//   font-size: 78rem;
-//   font-weight: 300;
-//   letter-spacing: .12rem;
-//   line-height: 1.7rem;
-// }
