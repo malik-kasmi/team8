@@ -6,11 +6,10 @@
 </div>
 
   <div>
-  <% if (current_user.joined_teams.nil? && current_user.teams.nil?) %>
-
+  <% if current_user.joined_teams.blank? %>
   <p>you have no teams</p>
   <% else %>
-  <% (current_user.joined_teams + current_user.teams).each do |team| %>
+  <% current_user.joined_teams.each do |team| %>
       <div class="card-team-gray">
         <div class="row">
           <div class="col-xs-12 col-sm-12">
@@ -45,8 +44,10 @@
                           <% else %>
                             <td><%= game.requester.name %></td>
                             <td><%= game.status %></td>
-                            <td>  <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
-                          <%= link_to "Reject invitation", reject_game_path(game), method: :patch %></td>
+                            <% if policy(game).accept? %>
+                              <td>  <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
+                            <%= link_to "Reject invitation", reject_game_path(game), method: :patch %></td>
+                          <% end %>
                           <% end %>
                         <% elsif game.status == "accept" %>
                           <% if game.requester.id == team.id %>

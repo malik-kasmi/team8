@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/styleguide', to: 'pages#styleguide'
   devise_for :users
 
-  resources :teams, only: [:new, :create, :index, :show] do
+  resources :teams, only: [:new, :create, :index] do
     resources :games, only: [:new, :create]
   end
 
