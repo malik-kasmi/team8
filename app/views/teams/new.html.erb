@@ -1,23 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-      <div class="padded-light bg-card-user registration-margin">
-        <h2>Create your team</h2>
-
+<body>
+  <div id="square" class="padded">
+    <div  id="leftSquare">
+     </div>
+    <div id="rightSquare">
+      <h2 class="text-center padded-top">Creation de mon équipe</h2>
         <%= simple_form_for(@team) do |f| %>
-          <%= f.error_notification %>
-
-          <div class="form-inputs">
-            <%= f.input :name, required: true, autofocus: true %>
-            <%= f.input :city, required: true, autofocus: true %>
+        <%= f.error_notification %>
+          <div id="container-input">
+            <%= f.input :name, label: "Nom de l'équipe", required: true, autofocus: true %>
+            <%= f.input :city, label: "Ville", required: true, autofocus: true %>
             <%= f.input :description, autofocus: true %>
           </div>
-
           <div class="form-actions">
-            <%= f.button :submit, "Create" %>
+                <%= f.button :submit, "Je crée mon équipe", class:"button-input button-orange button-orange-go" %>
           </div>
         <% end %>
-      </div>
     </div>
   </div>
-</div>
+</body>
