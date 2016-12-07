@@ -44,7 +44,7 @@
 
 .container-table td:first-child { color: $black; }
 
-.container-table tr:hover {
+.container-table tbody tr:hover {
   background-color: $orange;
   color: $black;
   font-weight: bold;
