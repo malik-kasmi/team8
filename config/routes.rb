@@ -1,4 +1,6 @@
+
 Rails.application.routes.draw do
+  mount Attachinary::Engine => "/attachinary"
   root to: 'pages#home'
   get '/styleguide', to: 'pages#styleguide'
   devise_for :users

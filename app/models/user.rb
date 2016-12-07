@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :team_users
   has_many :joined_teams, through: :team_users, source: :team # as player that joined teams
+  has_attachment :photo
 end
