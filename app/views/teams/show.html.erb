@@ -22,8 +22,8 @@
 
 <h3> Sent invitations (still pending): </h3>
 <% @players_pending.each do |player| %>
-<p> Username: <%= User.where(id: player.user_id)[0].username %></p>
-<p> Email: <%= User.where(id: player.user_id)[0].email %></p>
+<p> Username: <%= player.username %></p>
+<p> Email: <%= player.email %></p>
 <br>
 <% end %>
 
@@ -32,7 +32,7 @@
 <% @team.games.each do |game| %>
   <div>
     <% if game.status == "pending" %>
-      Opponent: <%= Team.find(game.team2_id).name %>
+      Opponent: <%= game.opponent.name %>
     <!-- accept invitation  -->
     <%= link_to "Accept game", "#", method: :patch, class: "btn btn-default" %>
     <!-- reject invitation -->

@@ -6,7 +6,7 @@
         <% @teams.each do |t| %>
         <div>
         <%= t.name %>
-        <%= link_to "Send invitation", team_games_path(game: {team2_id: t.id, team1_id: params[:team_id]}), method: :post %>
+        <%= link_to "Send invitation", team_games_path(@current_team, {opponent_id: t.id}), method: :post %>
         </div>
         <% end %>
       </div>
