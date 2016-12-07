@@ -1,0 +1,64 @@
+//TABLEAU des scores
+
+
+.container-table th h1 {
+    font-weight: bold;
+    font-size: 1em;
+  text-align: center;
+  color: $white;
+}
+
+.container-table td {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.container-table {
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+  display: table;
+  padding: 0 0 5em 0;
+}
+
+.container-table td, .container-table th {
+    padding-bottom: 1%;
+    padding-top: 1%;
+  padding-left:2%;
+}
+
+/* Background-color of the odd rows */
+.container-table tr:nth-child(odd) {
+    background-color: $white;
+}
+
+/* Background-color of the even rows */
+.container-table tr:nth-child(even) {
+    background-color: rgba($gray, 0.2);
+}
+
+.container-table th {
+    background-color: $gray;
+}
+
+.container-table td:first-child { color: $black; }
+
+.container-table tr:hover {
+  background-color: $orange;
+  color: $black;
+  font-weight: bold;
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+  box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}

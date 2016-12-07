@@ -1,0 +1,71 @@
+#square {
+  position: relative;
+  // width: 840px;
+  height: 100vh;
+  display: block;
+  margin: auto;
+  z-index: 3;
+  width: 100%;
+}
+
+#leftSquare {
+  width: 40%;
+  display: block;
+  margin:  auto;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-image: asset-url("panier.jpg");
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.5), 0 0px 20px 0 rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  border-radius: 0%;
+}
+
+#rightSquare {
+  width: 60%;
+  display: block;
+  margin:  auto;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  background-image: linear-gradient(to right, #B4B3AD, #EAE4E1);
+  background-size: cover;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+
+#title{
+  position: absolute;
+  left: 15%;
+  font-size: 4em;
+  font-weight: 400;
+  text-align: center;
+  z-index: 3;
+}
+
+#container-input{
+
+  margin-top: 3%;
+  margin-left: 5%;
+  padding-right: 5%;
+
+}
+
+#container-input:hover {
+  border-color: $orange;
+}
+
+.button-input{
+
+  display: block;
+  margin-left: 35%;
+  margin-top: 15%;
+}
+
+
+
+
+
