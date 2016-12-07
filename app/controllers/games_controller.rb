@@ -2,15 +2,22 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @teams = Team.all
+    @current_team = Team.find(params[:team_id])
+    @teams = Team.all - [@current_team]
+
   end
 
   def create
-    @game = Game.new(game_params)
-    @game.status = "pending"
-    @game.save!
-
-    redirect_to teams_path
+    @current_team = Team.find(params[:team_id])
+    opponent_team = Team.find(params[:opponent_id])
+    @game = Game.new(requester: @current_team, opponent: opponent_team, status: "pending")
+    if @game.save
+      flash[:notice] = "Invitation bien envoyee a #{opponent_team.name}"
+      redirect_to teams_path
+    else
+      flash[:alert] = "Il y a eu un probleme"
+      render :new
+    end
   end
 
   def accept
@@ -29,7 +36,7 @@ class GamesController < ApplicationController
 
 private
   def game_params
-    params.require(:game).permit(:team1_id, :team2_id)
+    params.require(:game).permit(:requester_id, :opponent_id, :status)
   end
 
 end

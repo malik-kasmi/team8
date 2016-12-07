@@ -11,7 +11,7 @@
 
 <h1 class="text-center"><strong>Les équipes</strong></h1>
 
-  <% if (current_user.joined_teams.nil? && current_user.teams.nil?) %>
+  <% if current_user.joined_teams.nil? && current_user.teams.nil? %>
   <p>you have no teams</p>
   <% else %>
   <% (current_user.joined_teams + current_user.teams).each do |team| %>
@@ -20,13 +20,38 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12">
             <div class="card badge-bordered">
-              <div class="card-category"><%= team.name %></div>
+              <h3 class="card-category"><%= team.name %></h3>
               <div class="card-description">
-                <h3><%= team.city%></h3>
+                <%= link_to "create game", new_team_game_path(team) %>
                   <ul>
                     <li><strong> Ville: </strong><%= team.city %></li>
-                    <li><strong> Capitaine: </strong><%= team.captain_id %></li>
+                    <li><strong> Capitaine: </strong><%= User.find(team.captain_id).username %></li>
                     <li><strong> Description: </strong><%= team.description %></li>
+                      <% team.games.each do |game| %>
+                        <div>
+                        <div>
+                        <% if game.status == "pending" %>
+                          <strong> Pending games' invitations: </strong>
+                          <% if game.requester.id == team.id %>
+                            <%= game.opponent.name %>
+                          <% else %>
+                            <%= game.requester.name %>
+                          <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
+                          <%= link_to "Reject invitation", reject_game_path(game), method: :patch %>
+                          <% end %>
+                        </div>
+                        <div>
+                        <% elsif game.status == "accept" %>
+                          <strong> Games to be played:</strong>
+                          <% if game.requester.id == team.id %>
+                          <%= game.opponent.name %>
+                          <% else %>
+                          <%= game.requester.name %>
+                          <% end %>
+                        </div>
+                        <% end %>
+                        </div>
+                      <% end %>
                   </ul>
               </div>
               <%= image_tag "logo.png", class:"card-user avatar avatar-large" %>
@@ -38,6 +63,6 @@
       </div>
     </div>
     <% end %>
-    <% end %>
+  <% end %>
 
 

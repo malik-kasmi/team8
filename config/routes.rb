@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :create]
   end
 
-  resources :teams, only: [] do
+  resources :games, only: [] do
     member do
       patch :accept
       patch :reject
