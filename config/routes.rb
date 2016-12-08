@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:new, :create, :index] do
     resources :games, only: [:new, :create]
+    member do
+      get :invitation
+    end
   end
 
   resources :games, only: [] do
@@ -29,5 +32,6 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: [:show, :edit, :update]
+  get '/:team_referal_url', to: 'teams#referal_landing'
 
 end

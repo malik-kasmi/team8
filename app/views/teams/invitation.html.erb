@@ -1,0 +1,14 @@
+<body>
+  <div id="square" class="padded">
+    <div  id="leftSquare">
+    </div>
+    <div id="rightSquare">
+      <h2 class="text-center padded-top">Invite tes amis!</h2>
+        <div id="container-input" style="padding: 2em margin-left:20px margin-top:100px">
+          <%= @team.invitation_url %>
+          <%= link_to "Envoyer par email", "#", class:"button-black" %>
+          <%= link_to "Envoyer par facebook", "#", class:"button-black" %>
+        </div>
+    </div>
+  </div>
+</body>

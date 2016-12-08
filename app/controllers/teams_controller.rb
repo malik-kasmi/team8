@@ -1,6 +1,9 @@
 class TeamsController < ApplicationController
 
 
+  skip_before_action :authenticate_user!, only: :referal_landing
+
+
   def index
     # @teams = Team.all
     @teams = policy_scope(Team)
@@ -18,7 +21,19 @@ class TeamsController < ApplicationController
     @team.save
     TeamUser.create(user: @team.captain, team: @team, requester: @team.captain, status: "accept")
 
-    redirect_to teams_path
+    redirect_to invitation_team_path(@team)
+  end
+
+  def invitation
+    @team = Team.find(params[:id])
+    authorize @team
+  end
+
+  def referal_landing
+    team_id = params[:team_referal_url].gsub(/join_team/, "").to_i
+    @team = Team.find(team_id)
+    authorize @team
+
   end
 
   # def edit
