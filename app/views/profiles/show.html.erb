@@ -9,7 +9,13 @@
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
         <div class="badge-bordered padded-light rounded bg-card-user xxx">
           <div class="padded-light">
-            <%= cl_image_tag current_user.photo.path, class: "avatar-square-lg", size: "150x150"%>
+
+          <% if current_user.photo.nil? %>
+              <%= image_tag "placeholder-md.png", class: "avatar-square-lg" %>
+              <% else %>
+              <%= cl_image_tag current_user.photo.path, class:"avatar-square-lg" %>
+              <% end %>
+
           </div>
           <div class="padded-light">
             <p><strong>Username: </strong> <%= @profile.username %> </p>
