@@ -6,7 +6,7 @@
       <h2 class="text-center padded-top">Creation de mon équipe</h2>
         <%= simple_form_for(@team) do |f| %>
         <%= f.error_notification %>
-          <div id="container-input">
+          <div id="container-input" class="padded-top">
             <%= f.input :name, label: "Nom de l'équipe  🏐", required: true, autofocus: true, input_html: { class: 'form-input' } %>
             <%= f.input :city, label: "Ville", required: true, autofocus: true, input_html: { class: 'form-input' } %>
             <%= f.input :description, autofocus: true, input_html: { class: 'form-input' } %>
