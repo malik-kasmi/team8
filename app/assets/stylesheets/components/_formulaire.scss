@@ -1,3 +1,5 @@
+// CREATION EQUIPE
+
 #square {
   position: relative;
   // width: 840px;
@@ -85,5 +87,30 @@
   font-style: $base-font;
 }
 
+// SIGN IN SIGN UP
 
 
+.background-form {
+}
+
+.form-wrapper {
+  position: relative;
+  background-image: linear-gradient(to left, $black, $gray);
+  background-size: 100vh;
+  // width: 100%;
+  // height: 100%;
+  background-attachment: fixed;
+  display: block;
+  margin:  auto;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  border-radius: 0%;
+  z-index: 1;
+  color: rgba($white, 0.9);
+  font-weight: lighter;
+}
+
+.color-orange{
+  color: $orange;
+}
