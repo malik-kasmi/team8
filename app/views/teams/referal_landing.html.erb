@@ -1,6 +1,9 @@
-<br>
-<br>
-<br>
-<br>
-Binvenue
-<%= @team.name %> t'invite
+<div class="banner-invitation" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%;">
+  <div>
+    <h1>Team<strong>8</strong></h1>
+    <p>L'équipe <strong><%= @team.name %></strong> t'invite à les rejoindre</p>
+    <br>
+    <br>
+    <%= link_to "Enregistre toi et rejoins les", new_user_session_path, class:"button-black padded-top" %>
+  </div>
+</div>
