@@ -51,40 +51,41 @@ background: $light-grey ;
 
 .background-white {
   background-color: white;
-  // background-image: asset-url("parquet.jpg");
   background-size: cover;
   background-position: center, center;
   background-attachment: fixed;
 }
 
 
-//Banner Home
+//PAGE INVITATION
 
-.banner-home {
-  background-image: asset-url("basket-equipe.jpg");
-  color: $white;
+
+.banner-invitation {
+  background-image: asset-url("equipe.jpg");
   text-align: center;
   min-height:100%;
   height: 100vh;
   top: 0px;
-  // height: calc(100vh - 70px);
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.banner-home h1 {
-  font-size: 50px;
-  // font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+.banner-invitation h1 {
+  color: $white;
+  font-size: 80px;
+  font-weight: bold;
+  text-shadow: 0px 3px rgba($orange, 0.5);
 }
-.banner-home p {
-  font-size: 20px;
-  font-weight: lighter;
-  color: rgba(250, 250, 250, 0.7);
+.banner-invitation p {
+  font-size: 30px;
+  font-weight: light;
+  color: $white;
   margin-bottom: 20px;
+  text-shadow: 1px 1px rgba($black, 0.8);
 }
 
-.banner-home strong {
+.banner-invitation strong {
   color: $orange;
+  font-weight: bold;
 }

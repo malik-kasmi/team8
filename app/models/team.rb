@@ -11,4 +11,8 @@ class Team < ApplicationRecord
     games_array.compact
   end
 
+  def invitation_url
+    "http://localhost:3000/join_team" + self.id.to_s
+  end
+
 end

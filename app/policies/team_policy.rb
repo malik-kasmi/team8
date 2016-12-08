@@ -13,4 +13,11 @@ class TeamPolicy < ApplicationPolicy
     true
   end
 
+  def invitation?
+    true
+  end
+
+  def referal_landing?
+    true
+  end
 end
