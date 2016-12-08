@@ -33,7 +33,6 @@ class TeamsController < ApplicationController
     team_id = params[:team_referal_url].gsub(/join_team/, "").to_i
     @team = Team.find(team_id)
     authorize @team
-
   end
 
   # def edit
