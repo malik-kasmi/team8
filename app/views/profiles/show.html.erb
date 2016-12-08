@@ -10,11 +10,14 @@
         <div class="badge-bordered padded-light rounded bg-card-user xxx">
           <div class="padded-light">
 
+
           <% if current_user.photo.nil? %>
               <%= image_tag "placeholder-md.png", class: "avatar-square-lg" %>
               <% else %>
               <%= cl_image_tag current_user.photo.path, class:"avatar-square-lg" %>
               <% end %>
+
+
 
           </div>
           <div class="padded-light">
