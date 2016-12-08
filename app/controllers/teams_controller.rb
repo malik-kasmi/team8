@@ -35,6 +35,12 @@ class TeamsController < ApplicationController
     authorize @team
   end
 
+  # def join_team
+  #   @team = Team.find([:id])
+  #   TeamUser.create(user: current_user, team: @team, requester: @team.captain, status: "accept")
+  # end
+
+
   # def edit
   #   @team = Team.find(params[:id])
   # end

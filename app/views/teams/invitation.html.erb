@@ -7,8 +7,11 @@
           <%= link_to_send = request.protocol + request.host_with_port + "/join_team" + @team.id.to_s %>
         </div>
           <div id="shareBtn" class="btn btn-success clearfix">Share</div>
+          <%= link_to "Continuer", teams_path ,class:"button-black" %>
+    </div>
+  </div>
 
-
+<!-- INVITE FRIENDS ON FACEBOOK -->
           <script>
             window.fbAsyncInit = function() {
               FB.init({
@@ -37,6 +40,4 @@
                 });
             }
           </script>
-    </div>
-  </div>
 </body>
