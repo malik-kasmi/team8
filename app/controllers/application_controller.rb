@@ -20,11 +20,13 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
-
-
   end
 
   def after_sign_in_path_for(resource)
+    if !session[:invited_by_team].blank?
+      TeamUser.create(user: resource, team: Team.find(session[:invited_by_team]),  status: "accept")
+      session[:invited_by_team] = nil
+    end
     request.env['omniauth.origin'] || stored_location_for(resource) || teams_path || root_path
   end
 
