@@ -26,6 +26,10 @@
   padding-top: 70px;
 }
 
+.padded-bottom {
+  padding-bottom: 70px;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -48,6 +52,14 @@ background: $light-grey ;
   border-radius: 5px;
 }
 
+.center {
+  margin: 0 auto;
+}
+
+.flexbox-center-container {
+  display: flex;
+  justify-content: center;
+}
 
 .background-white {
   background-color: white;
