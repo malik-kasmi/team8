@@ -112,7 +112,7 @@
   margin-top: 15px;
   box-shadow: 1px 1px 4px $orange;
   border-color: $orange;
-  background-color: $black;
+  background-color: rgba($black, 0.9);
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
@@ -123,7 +123,7 @@
   padding: 10px 20px;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
-  background: $black !important;
+  background: transparent !important;
   color: $orange !important;
 }
 .navbar-wagon-dropdown-menu:before {
