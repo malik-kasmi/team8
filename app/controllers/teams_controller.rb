@@ -32,6 +32,7 @@ class TeamsController < ApplicationController
   def referal_landing
     team_id = params[:team_referal_url].gsub(/join_team/, "").to_i
     @team = Team.find(team_id)
+    session[:invited_by_team] = @team.id
     authorize @team
   end
 
