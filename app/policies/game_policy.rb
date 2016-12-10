@@ -17,4 +17,12 @@ class GamePolicy < ApplicationPolicy
     record.opponent.captain == user
   end
 
+  def edit?
+    update?
+  end
+
+  def update?
+    record.requester.captain == user
+  end
+
 end

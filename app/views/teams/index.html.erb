@@ -71,7 +71,7 @@
                             <td><%= game.requester.name %></td>
                           <% end %>
                           <td><%= game.status %></td>
-                          <td>No action required</td>
+                          <td><%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%></td>
                         <% end %>
                       <% end %>
                     </tr>
@@ -95,18 +95,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Victoire</td>
-      <td>88 - 120</td>
-      <td>Miami Heat</td>
-      <td>11/08/2016</td>
-    </tr>
-    <tr>
-      <td>Defaite</td>
-      <td>90 - 40</td>
-      <td>Pacers</td>
-      <td>12/05/2015</td>
-    </tr>
+  <% team.games.each do |game| %>
+    <% if game.status == "done" %>
+      <tr>
+        <% if game.winner_id == team.id %>
+        <td> Victoire </td>
+        <% else %>
+        <td> Defaite </td>
+        <% end %>
+        <td><%= game.winner_score %> - <%= game.loser_score %> </td>
+        <td><%= game.opponent.name %></td>
+        <td><%= game.updated_at %></td>
+      </tr>
+    <% end %>
+  <% end %>
   </tbody>
 </table>
     <% end %>

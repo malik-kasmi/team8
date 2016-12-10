@@ -37,9 +37,22 @@ class GamesController < ApplicationController
     redirect_to teams_path
   end
 
+  def edit
+    @game = Game.find(params[:id])
+    authorize @game
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    authorize @game
+    @game.update(winner_id: Team.find_by(name: params[:game][:winner_id]).id, status: "done", winner_score: params[:game][:winner_score], loser_score: params[:game][:loser_score])
+
+    redirect_to teams_path
+  end
+
 private
   def game_params
-    params.require(:game).permit(:requester_id, :opponent_id, :status)
+    params.require(:game).permit(:requester_id, :opponent_id, :status, :winner, :winner_score, :loser_score)
   end
 
 end
