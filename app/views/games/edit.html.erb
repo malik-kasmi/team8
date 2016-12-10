@@ -1,0 +1,20 @@
+<body>
+  <div id="square" class="padded">
+    <div  id="leftSquare">
+     </div>
+    <div id="rightSquare">
+      <h2 class="text-center padded-top">Score du match</h2>
+        <%= simple_form_for(@game) do |f| %>
+        <%= f.error_notification %>
+          <div id="container-input" class="padded-top">
+            <%= f.input :winner_id, label: "Vainqueur", required: true, autofocus: true, collection: [@game.requester.name, @game.opponent.name], input_html: { class: 'form-input' } %>
+            <%= f.input :winner_score, label: "Score du vainqueur", required: true, autofocus: true, input_html: { class: 'form-input' } %>
+            <%= f.input :loser_score, label: "Score du perdant", required: true, autofocus: true, input_html: { class: 'form-input' } %>
+          </div>
+          <div class="form-actions">
+                <%= f.button :submit, "Mettre a jour le resultat", class:"button-input button-black" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</body>

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games, only: [] do
+  resources :games, only: [:edit, :update] do
     member do
       patch :accept
       patch :reject
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     member do
       patch :accept
       patch :reject
-      patch :leave
+      # patch :leave
     end
   end
 
