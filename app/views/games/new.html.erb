@@ -1,15 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-      <div class="padded-light bg-card-user registration-margin">
-        <h2>Create your game</h2>
+<div class="background-sign-form">
+  <h1 class="text-center padded-top padded-bottom">Défie une équipe</h1>
+  <div class="center">
+  <hr>
+    <%= form_tag new_team_game_path, method: :get do %>
+      <%= label_tag(:city, "Entre une ville pour trouver les équipes proches de chez toi:") %>
+      <%= text_field_tag :city, "", class: 'form-input padded-top  padded-left'%>
+      <%= submit_tag "Rechercher", class:"button-orange"%>
+    <% end %>
+  <hr>
+    <div class="padded-light">
         <% @teams.each do |t| %>
-        <div>
-        <%= t.name %>
-        <%= link_to "Send invitation", team_games_path(@current_team, {opponent_id: t.id}), method: :post %>
-        </div>
+          <h2><strong><%= t.name %></strong></h2>
+          <h4 class="margin">Nombre de victoire:</h4>
+          <br>
+            <div class="select-wrapper">
+              <p>Entre l'adresse du terrain où aura lieu le match :</p>
+              <%= text_field_tag :location, "", class: 'form-input' %>
+            <br>
+            <br>
+            <p>Choisis la date du match :</p>
+            <%= date_select :start_date, :startdate , :class => 'datepicker' %>
+            </div>
+          <br>
+          <p>Ville de l'équipe :<%= t.city %></p>
+          <%= link_to "Défier", team_games_path(@current_team, {opponent_id: t.id}), method: :post, class:"button-black margin" %>
+        <hr>
         <% end %>
-      </div>
     </div>
   </div>
 </div>
+

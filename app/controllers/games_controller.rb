@@ -1,5 +1,13 @@
 class GamesController < ApplicationController
 
+ def index
+    if params[:city].blank?
+      @teams = Team.all
+    else
+      @teams = Team.where(city: params[:city].capitalize)
+    end
+  end
+
   def new
     @current_team = Team.find(params[:team_id])
     @game = Game.new(requester: @current_team)
