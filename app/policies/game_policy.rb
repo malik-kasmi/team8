@@ -5,6 +5,10 @@ class GamePolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    create?
+  end
+
   def create?
     record.requester.captain == user
   end

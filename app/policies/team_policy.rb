@@ -13,6 +13,10 @@ class TeamPolicy < ApplicationPolicy
     true
   end
 
+  def create_game?
+    record.captain == user
+  end
+
   def invitation?
     true
   end

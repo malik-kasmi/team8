@@ -36,7 +36,9 @@
                     </div>
 
                     <div class="text-center">
+                    <% if policy(team).create_game? %>
                       <%= link_to "Organiser un match", new_team_game_path(team), class:"button-orange button-orange-go text-center" %>
+                    <% end %>
                     </div>
 
                   <h2 class="text-center">Matchs à confirmer</h2>
@@ -62,6 +64,8 @@
                             <% if policy(game).accept? %>
                               <td>  <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
                             <%= link_to "Reject invitation", reject_game_path(game), method: :patch %></td>
+                          <% else %>
+                            <td> - </td>
                           <% end %>
                           <% end %>
                         <% elsif game.status == "accept" %>
@@ -73,6 +77,8 @@
                           <td> Défi accepté </td>
                           <% if policy(game).update? %>
                             <td><%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%></td>
+                          <% else %>
+                            <td> - </td>
                           <% end %>
                         <% end %>
                       <% end %>
