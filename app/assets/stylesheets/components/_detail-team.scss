@@ -10,14 +10,6 @@
   flex: center;
 }
 
-.team-name {
-  color: white;
-}
-
-.background-team {
-  background-color: $light-grey;
-  border-radius: 5px;
-}
 
 .detail {
   color: white;
@@ -25,4 +17,10 @@
 
 .content-page {
   border-radius : 10px;
+}
+
+.logo-footer {
+  width: 100px;
+  height: 25px;
+  float: right;
 }
