@@ -4,7 +4,11 @@ class GamesController < ApplicationController
     @current_team = Team.find(params[:team_id])
     @game = Game.new(requester: @current_team)
     authorize @game
-    @teams = Team.all - [@current_team]
+    if params[:city].blank?
+      @teams = Team.all - [@current_team]
+    else
+      @teams = Team.where(city: params[:city].capitalize)
+    end
   end
 
   def create
