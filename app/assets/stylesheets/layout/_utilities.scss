@@ -144,13 +144,8 @@ hr {
 
 }
 
-
 .select-wrapper option {
   background-color: rgba(10, 10, 10, 0.8);
   border-color: $orange;
 }
 
-option:focus:hover {
-  background-color: $orange;
-  color: $black;
-}
