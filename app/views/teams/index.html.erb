@@ -24,8 +24,6 @@
             </ul>
             </div>
             <div class="flexbox">
-
-
               <% team.players.each do |player| %>
               <div class="text-center">
               <li class="list-unstyled"><strong><%= player.username%></strong></li>
@@ -44,55 +42,55 @@
               <br>
               <li>Poste: <%= player.favorite_position%></li>
               <li>Age: <%= player.age%></li>
-                <% if player == team.captain %>
-                <% end %>
               </ul>
               </div>
               <% end %>
             </div>
-
-            <div class="text-center padded-top">
+                  <div class="text-center padded-top">
               <%= link_to "Organiser un match", new_team_game_path(team), class:"button-orange button-orange-go text-center" %>
             </div>
+
             <hr>
             <h2 class="text-center detail">Matchs à venir</h2>
             <table class="container-table">
               <thead>
-                <tr>
-                  <th><h1>Adversaire</h1></th>
-                  <th><h1>Statut</h1></th>
-                  <th><h1>Action</h1></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% team.games.each do |game| %>
-                  <tr>
-                    <% if game.status == "pending" %>
-                      <% if game.requester.id == team.id %>
-                        <td><%= game.opponent.name %></td>
-                        <td><%= game.status %></td>
-                        <td> Waiting for <%= game.opponent.name %>'s answer </td>
-                      <% else %>
-                        <td><%= game.requester.name %></td>
-                        <td><%= game.status %></td>
-                        <% if policy(game).accept? %>
-                          <td>  <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
-                          <%= link_to "Reject invitation", reject_game_path(game), method: :patch %></td>
+                      <tr>
+                        <th><h1>Adversaire</h1></th>
+                        <th><h1>Statut</h1></th>
+                        <th><h1>Action</h1></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% team.games.each do |game| %>
+                      <tr>
+                        <% if game.status == "pending" %>
+                          <% if game.requester.id == team.id %>
+                            <td><%= game.opponent.name %></td>
+                            <td> En attente de confirmation </td>
+                            <td> - </td>
+                          <% else %>
+                            <td><%= game.requester.name %></td>
+                            <td><%= game.status %></td>
+                            <% if policy(game).accept? %>
+                              <td>  <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
+                            <%= link_to "Reject invitation", reject_game_path(game), method: :patch %></td>
+                          <% end %>
+                          <% end %>
+                        <% elsif game.status == "accept" %>
+                          <% if game.requester.id == team.id %>
+                            <td><%= game.opponent.name %></td>
+                          <% else %>
+                            <td><%= game.requester.name %></td>
+                          <% end %>
+                          <td> Défi accepté </td>
+                          <% if policy(game).update? %>
+                            <td><%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%></td>
+                          <% end %>
                         <% end %>
                       <% end %>
-                        <% elsif game.status == "accept" %>
-                        <% if game.requester.id == team.id %>
-                          <td><%= game.opponent.name %></td>
-                        <% else %>
-                          <td><%= game.requester.name %></td>
-                        <% end %>
-                      <td><%= game.status %></td>
-                      <td><%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%></td>
-                    <% end %>
-                <% end %>
-                  </tr>
-              </tbody>
-              </table>
+                    </tr>
+                  </tbody>
+                </table>
 
       </div>
     </div>
@@ -115,12 +113,17 @@
           <% else %>
             <td> Defaite </td>
           <% end %>
-            <td><%= game.winner_score %> - <%= game.loser_score %> </td>
-            <td><%= game.opponent.name %></td>
-            <td><%= game.updated_at %></td>
-          </tr>
-          <% end %>
+          <td><%= game.winner_score %> - <%= game.loser_score %> </td>
+        <% if game.requester.id == team.id %>
+          <td><%= game.opponent.name %></td>
+        <% else %>
+          <td><%= game.requester.name %></td>
         <% end %>
+        <td><%= game.updated_at %></td>
+      </tr>
+    <% end %>
+        <% end %>
+
       </tbody>
     </table>
   <br>
@@ -128,5 +131,8 @@
   <hr>
   <% end %>
   <% end %>
+
   </div>
 </div>
+
+
