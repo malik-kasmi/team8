@@ -54,8 +54,8 @@
                         <% if game.status == "pending" %>
                           <% if game.requester.id == team.id %>
                             <td><%= game.opponent.name %></td>
-                            <td><%= game.status %></td>
-                            <td> Waiting for <%= game.opponent.name %>'s answer </td>
+                            <td> En attente de confirmation </td>
+                            <td> - </td>
                           <% else %>
                             <td><%= game.requester.name %></td>
                             <td><%= game.status %></td>
@@ -70,8 +70,10 @@
                           <% else %>
                             <td><%= game.requester.name %></td>
                           <% end %>
-                          <td><%= game.status %></td>
-                          <td><%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%></td>
+                          <td> Défi accepté </td>
+                          <% if policy(game).update? %>
+                            <td><%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%></td>
+                          <% end %>
                         <% end %>
                       <% end %>
                     </tr>
@@ -104,7 +106,11 @@
         <td> Defaite </td>
         <% end %>
         <td><%= game.winner_score %> - <%= game.loser_score %> </td>
-        <td><%= game.opponent.name %></td>
+        <% if game.requester.id == team.id %>
+          <td><%= game.opponent.name %></td>
+        <% else %>
+          <td><%= game.requester.name %></td>
+        <% end %>
         <td><%= game.updated_at %></td>
       </tr>
     <% end %>
