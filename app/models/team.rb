@@ -6,6 +6,9 @@ class Team < ApplicationRecord
   has_many :game_2s, class_name: "Game", foreign_key: :team2_id
   has_many :wins, class_name: "Game", foreign_key: :winner_id
 
+  validates :name, presence: true, uniqueness: true
+  validates :city, presence: true
+
   def games
     games_array = self.game_1s + self.game_2s
     games_array.compact
