@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   root to: 'pages#home'
   get '/styleguide', to: 'pages#styleguide'
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :teams, only: [:new, :create, :index] do
     resources :games, only: [:new, :create]
