@@ -1,45 +1,49 @@
 //TABLEAU des scores
 
+.container-table {
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 3em 0;
+}
 
 .container-table th h1 {
-    font-weight: bold;
-    font-size: 1em;
+  font-weight: bold;
+  font-size: 1em;
   text-align: center;
   color: $white;
 }
 
 .container-table td {
-    font-weight: normal;
-    font-size: 1em;
+  font-weight: normal;
+  font-size: 1em;
 }
 
-.container-table {
-    text-align: center;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-  display: table;
-  padding: 0 0 5em 0;
-}
 
 .container-table td, .container-table th {
-    padding-bottom: 1%;
-    padding-top: 1%;
-  padding-left:2%;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-left:1%;
+  padding-right:1%;
 }
 
 /* Background-color of the odd rows */
 .container-table tr:nth-child(odd) {
-    background-color: $white;
+  background-color: $white;
+  border : $orange 1px solid;
 }
 
 /* Background-color of the even rows */
 .container-table tr:nth-child(even) {
-    background-color: rgba($gray, 0.2);
+  background-color: rgba($white, 0.8);
+  border : $orange 1px solid;
 }
 
 .container-table th {
-    background-color: $gray;
+  background-color: $gray;
+  border : $orange 1px solid;
 }
 
 .container-table td:first-child { color: $black; }
