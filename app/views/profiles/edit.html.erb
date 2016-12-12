@@ -1,15 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-4 col-sm-4">
-      <h1> My profile </h1>
-      <%= simple_form_for @profile, url: profile_path do |f| %>
-        <%= f.input :age %>
-        <%= f.input :city %>
-        <%= f.input :gender %>
-        <%= f.input :description %>
-        <%= f.input :favorite_position %>
-        <%= f.button :submit %>
-      <% end %>
+<div class="background-profile full-height">
+  <div class="padded-light text-center" style="margin-top:50px">
+    <h1> MON PROFIL </h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+        <div class="badge-bordered padded-light rounded bg-card-user">
+          <%= simple_form_for @profile, url: profile_path do |f| %>
+            <%= f.input :age, input_html: {class:"form-input"} %>
+            <%= f.input :city, input_html: {class:"form-input"} %>
+            <%= f.input :gender, input_html: {class:"form-input"} %>
+            <%= f.input :description, input_html: {class:"form-input"} %>
+            <%= f.input :favorite_position, input_html: {class:"form-input"} %>
+            <%= f.button :submit, class:"button-orange center" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 .bg-card-user {
-  background-color: $light-grey;
+  background-color: rgba($gray,0.85);
   color: $white;
 }
 
@@ -7,8 +7,9 @@
   margin-top: 5em;
 }
 
-.xxx {
-  display: flex;
-  align-content: space-between;
+.background-profile {
+  padding: 20px;
+  background-image: asset-url("basketball1.jpg");
+  background-size: cover;
 }
 
