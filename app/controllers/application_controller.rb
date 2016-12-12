@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     request.env['omniauth.origin'] || stored_location_for(resource) || teams_path || root_path
   end
 
+  def default_url_options
+  { host: ENV['HOST'] || 'localhost:3000' }
+  end
+
 private
 
   def skip_pundit?
