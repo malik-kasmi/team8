@@ -43,15 +43,17 @@
          <br>
           <div class="select-wrapper">
               <p class="color-white">Entre l'adresse du terrain où aura lieu le match :</p>
-              <%= text_field_tag :location, "", class: 'form-input' %>
-            <br>
-            <br>
-            <p class="color-white">Choisis la date du match :</p>
-            <%= date_select :start_date, :startdate , :class => 'datepicker' %>
-            </div>
+              <%= simple_form_for Game.new, url: team_games_path(@current_team, {opponent_id: t.id}), method: :post do |f| %>
+                <%= text_field_tag :location, "", class: 'form-input' %>
+                <br>
+                <br>
+                <p class="color-white">Choisis la date du match :</p>
+                <%= date_select :start_date, nil, :class => 'datepicker' %>
+          </div>
           <br>
           <p class="color-white">Ville de l'équipe :<%= t.city %></p>
-          <%= link_to "Défier cette équipe", team_games_path(@current_team, {opponent_id: t.id}), method: :post, class:"button-black margin" %>
+          <%= submit_tag "Défier cette équipe", class:"button-black margin" %>
+          <% end %>
         <hr>
          <% end %>
 
