@@ -39,7 +39,14 @@
               </div>
         <% end %>
         </div>
-        <h4 class="margin">Nombre de victoire:</h4>
+        <h4 class="margin"> % de victoires:
+          <% if t.games.length == 0 %>
+            0
+          <% else %>
+            <%= (t.wins.length.fdiv(t.games.length)).round(3) * 100 %>
+          <% end %>
+          %
+        </h4>
          <br>
           <div class="select-wrapper">
               <p class="color-white">Entre l'adresse du terrain où aura lieu le match :</p>
