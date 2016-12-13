@@ -14,8 +14,20 @@ class GamesController < ApplicationController
   def create
     @current_team = Team.find(params[:team_id])
     opponent_team = Team.find(params[:opponent_id])
-    @game = Game.new(requester: @current_team, opponent: opponent_team, status: "pending")
+
+    @start_date = Date.civil(params["start_date"]["(1i)"].to_i,
+                         params["start_date"]["(2i)"].to_i,
+                         params["start_date"]["(3i)"].to_i)
+
+    @game = Game.new(
+      requester: @current_team,
+      opponent: opponent_team,
+      status: "pending",
+      location: params[:location],
+      start_date: @start_date
+    )
     authorize @game
+
     if @game.save
       flash[:notice] = "Invitation bien envoyee a #{opponent_team.name}"
       redirect_to teams_path
@@ -56,7 +68,7 @@ class GamesController < ApplicationController
 
 private
   def game_params
-    params.require(:game).permit(:requester_id, :opponent_id, :status, :winner, :winner_score, :loser_score)
+    params.require(:game).permit(:requester_id, :opponent_id, :status, :winner, :winner_score, :loser_score, :location, :start_date)
   end
 
 end
