@@ -126,3 +126,7 @@ h1 {
 .form-wrapper a:focus {
   color: $white;
 }
+
+.background-black {
+  background-image: linear-gradient(to left, $black, $gray);
+}

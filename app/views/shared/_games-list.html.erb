@@ -1,0 +1,38 @@
+<div class="product">
+<p class="detail margin-right">11/08/1991</p>
+  <%= image_tag "equipe.jpg", class: "product-image"%>
+  <div class='product-upvote product-body'>
+    <div class='product-count'>
+      <% if game.status == "pending" %>
+        <% if game.requester.id == team.id %>
+          <h3><%= game.opponent.name %></h3>
+          <p>En attente de confirmation</p>
+        <% else %>
+          <h3><%= game.requester.name %></h3>
+          <p><%= game.status %></p>
+          <% if policy(game).accept? %>
+            <div class="list-inline product-controls hidden-sm hidden-xs">
+              <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
+              <%= link_to "Reject invitation", reject_game_path(game), method: :patch %>
+            </div>
+          <% else %>
+              <p>-</p>
+          <% end %>
+        <% end %>
+      <% elsif game.status == "accept" %>
+        <% if game.requester.id == team.id %>
+          <h3><%= game.opponent.name %></h3>
+        <% else %>
+          <h3><%= game.requester.name %></h3>
+        <% end %>
+        <p>Défi accepté</p>
+        <% if policy(game).update? %>
+          <%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%>
+        <% else %>
+          <p>-</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
