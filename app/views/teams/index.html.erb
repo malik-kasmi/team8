@@ -19,6 +19,10 @@
               <li><strong> Ville: </strong><%= team.city %></li>
               <li><strong> Capitaine: </strong><%= User.find(team.captain_id).username %></li>
               <li><strong> Description: </strong><%= team.description %></li>
+              <li><% if team.photo? %>
+                    <%= cl_image_tag team.photo.path, width: 200, height: 300, crop: :fill %>
+                  <% end %>
+              </li>
               <hr>
             <h2>Composition d'équipe</h2>
             </ul>

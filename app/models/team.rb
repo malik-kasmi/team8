@@ -9,6 +9,8 @@ class Team < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :city, presence: true
 
+   has_attachment :photo
+
   def games
     games_array = self.game_1s + self.game_2s
     games_array.compact
