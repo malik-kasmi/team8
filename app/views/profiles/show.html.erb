@@ -5,7 +5,7 @@
   <div class = "container">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-        <div class="badge-bordered padded-light rounded bg-card-user text-center" style="margin:50px">
+        <div class="badge-bordered rounded bg-card-user" style="margin:20px">
         <div class="flexbox">
           <div class="padded-light">
             <% if current_user.photo.nil? %>
@@ -15,15 +15,15 @@
             <% end %>
           </div>
           <div class="padded-light">
-            <p><strong>Username: </strong> <%= @profile.username %> </p>
+            <p><strong>Nom: </strong> <%= @profile.username %> </p>
             <p><strong>Age:</strong> <%= @profile.age %> </p>
             <p><strong>Ville:</strong> <%= @profile.city %> </p>
-            <p><strong>Genre: </strong><%= @profile.gender %> </p>
-            <p><strong>Description: </strong><%= @profile.description %> </p>
             <p><strong>Position favorite: </strong><%= @profile.favorite_position %> </p>
           </div>
         </div>
+            <div class="text-center padded-light">
             <%= link_to "Editer mon profil", edit_profile_path, class:"button-orange"%>
+            </div>
         </div>
       </div>
     </div>

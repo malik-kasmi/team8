@@ -1,5 +1,5 @@
 <div class="background-profile full-height">
-  <div class="padded-light text-center" style="margin-top:50px">
+  <div class="padded-light text-center">
     <h1> MON PROFIL </h1>
   </div>
   <div class="container">
@@ -9,8 +9,6 @@
           <%= simple_form_for @profile, url: profile_path do |f| %>
             <%= f.input :age, input_html: {class:"form-input"} %>
             <%= f.input :city, input_html: {class:"form-input"} %>
-            <%= f.input :gender, input_html: {class:"form-input"} %>
-            <%= f.input :description, input_html: {class:"form-input"} %>
             <%= f.input :favorite_position, input_html: {class:"form-input"} %>
             <%= f.button :submit, class:"button-orange center" %>
           <% end %>
