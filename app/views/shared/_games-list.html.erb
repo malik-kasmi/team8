@@ -1,38 +1,47 @@
-<div class="product">
-<p class="detail margin-right">11/08/1991</p>
-  <%= image_tag "equipe.jpg", class: "product-image"%>
-  <div class='product-upvote product-body'>
+<div class="product product-upvote product-body">
     <div class='product-count'>
       <% if game.status == "pending" %>
-        <% if game.requester.id == team.id %>
-          <h3><%= game.opponent.name %></h3>
-          <p>En attente de confirmation</p>
+        <p class="detail margin-right"><%= game[:start_date] %></p>
+      <% if game.requester.id == team.id %>
+        <% if game.opponent.photo.nil? %>
+          <div class="product product-image" style="background-image: url('<%= image_path "equipe.jpg" %>')"></div>
         <% else %>
-          <h3><%= game.requester.name %></h3>
-          <p><%= game.status %></p>
-          <% if policy(game).accept? %>
-            <div class="list-inline product-controls hidden-sm hidden-xs">
-              <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
-              <%= link_to "Reject invitation", reject_game_path(game), method: :patch %>
-            </div>
-          <% else %>
-              <p>-</p>
-          <% end %>
+        <div class="product product-image" style="background-image: url('<%= cl_image_path game.opponent.photo.path, height: 150, width: 150, crop: :fill %>')"></div>
         <% end %>
-      <% elsif game.status == "accept" %>
-        <% if game.requester.id == team.id %>
-          <h3><%= game.opponent.name %></h3>
+        <h3><%= game.opponent.name %></h3>
+        <p>En attente de confirmation</p>
+        <p><%= game[:location] %></p>
+      <% else %>
+        <% if game.requester.photo.nil? %>
+          <div class="product product-image" style="background-image: url('<%= image_path "equipe.jpg" %>')"></div>
         <% else %>
-          <h3><%= game.requester.name %></h3>
+        <div class="product product-image" style="background-image: url('<%= cl_image_path game.requester.photo.path, height: 150, width: 150, crop: :fill %>')"></div>
         <% end %>
-        <p>Défi accepté</p>
-        <% if policy(game).update? %>
-          <%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%>
+        <h3><%= game.requester.name %></h3>
+        <p><%= game.status %></p>
+        <p><%= game[:location] %></p>
+        <% if policy(game).accept? %>
+          <div class="list-inline product-controls hidden-sm hidden-xs">
+            <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
+            <%= link_to "Reject invitation", reject_game_path(game), method: :patch %>
+          </div>
         <% else %>
-          <p>-</p>
+            <p>-</p>
         <% end %>
       <% end %>
-    </div>
+    <% elsif game.status == "accept" %>
+      <% if game.requester.id == team.id %>
+        <h3><%= game.opponent.name %></h3>
+      <% else %>
+        <h3><%= game.requester.name %></h3>
+      <% end %>
+      <p>Défi accepté</p>
+      <% if policy(game).update? %>
+        <%= link_to "Entre le score du match", edit_game_path(game), class:"button-black"%>
+      <% else %>
+        <p>-</p>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

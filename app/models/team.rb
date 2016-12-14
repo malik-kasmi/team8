@@ -12,8 +12,10 @@ class Team < ApplicationRecord
    has_attachment :photo
 
   def games
-    games_array = self.game_1s + self.game_2s
-    games_array.compact
+    # games_array = self.game_1s + self.game_2s
+    # games_array.compact
+    game_ids = self.game_1_ids + self.game_2_ids
+    Game.where(id: game_ids)
   end
 
 end
