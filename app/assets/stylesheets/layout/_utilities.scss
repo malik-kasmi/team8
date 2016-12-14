@@ -85,6 +85,16 @@ background: $light-grey ;
   background-attachment: fixed;
 }
 
+.text-unstyled-accept {
+  text-decoration: none;
+  color: $white;
+}
+
+.text-unstyled-accept:hover {
+ text-decoration: none;
+ color: green;
+}
+
 .text-unstyled h2{
   text-decoration: none;
   color: $orange;
