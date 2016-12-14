@@ -34,7 +34,7 @@
       <% current_user.joined_teams.each do |team| %>
       <div class="row" id="team-<%= team.id%>">
         <div class="col-xs-12 col-sm-6">
-          <div class="banner-team-detail text-center" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), <% if team.photo.nil? %> url('<%= image_path "equipe.jpg" %>') <% else %> url('<%= cl_image_path team.photo.path, height: 550, width: 300, crop: :fill %>') <% end %>;">
+          <div class="banner-team-detail text-center" style="background-size: cover; background-position: center; background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), <% if team.photo.nil? %> url('<%= image_path "equipe.jpg" %>') <% else %> url('<%= cl_image_path team.photo.path, height: 550, width: 300, gravity:"auto", crop: :fill %>') <% end %>;">
             <div class="text-center">
              <h3><%= team.name %></h3>
              <p><%=team.description%></p>
