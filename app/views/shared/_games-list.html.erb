@@ -22,8 +22,8 @@
         <p><%= game[:location] %></p>
         <% if policy(game).accept? %>
           <div class="list-inline product-controls hidden-sm hidden-xs">
-            <%= link_to "Accept invitation", accept_game_path(game), method: :patch %>
-            <%= link_to "Reject invitation", reject_game_path(game), method: :patch %>
+            <%= link_to "Accepter le défi", accept_game_path(game), method: :patch %>
+            <%= link_to "Refuser le défi", reject_game_path(game), method: :patch %>
           </div>
         <% else %>
             <p>-</p>

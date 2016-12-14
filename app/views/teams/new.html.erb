@@ -1,5 +1,5 @@
 <body>
-  <div id="square" class="padded">
+  <div id="square" class="">
     <div  id="leftSquare">
      </div>
     <div id="rightSquare">
@@ -9,10 +9,10 @@
           <div id="container-input" class="padded-top">
             <%= f.input :name, label: "Nom de l'équipe  🏐", required: true, autofocus: true, input_html: { class: 'form-input' } %>
             <%= f.input :city, label: "Ville", required: true, autofocus: true, input_html: { class: 'form-input' } %>
-            <%= f.input :description, autofocus: true, input_html: { class: 'form-input' } %>
+            <%= f.input :description, label: "Votre devise d'équipe", autofocus: true, input_html: { class: 'form-input' } %>
             <%= f.input :photo, as: :attachinary %>
           </div>
-          <div class="form-actions">
+          <div>
                 <%= f.button :submit, "Je crée mon équipe", class:"button-input button-black" %>
           </div>
         <% end %>
