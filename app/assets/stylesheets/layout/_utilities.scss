@@ -34,8 +34,17 @@
   padding-top: 70px;
 }
 
+.padded-top-light {
+  padding-top: 15px;
+}
+
 .padded-bottom {
   padding-bottom: 70px;
+}
+
+.padded-ultra-light {
+  padding-top: 70px;
+  padding-bottom: 50px;
 }
 
 // Backgrounds
@@ -76,7 +85,25 @@ background: $light-grey ;
   background-attachment: fixed;
 }
 
+.text-unstyled h2{
+  text-decoration: none;
+  color: $orange;
+}
 
+.text-unstyled a:hover {
+  text-decoration: none;
+}
+
+.text-unstyled h2:hover {
+  text-decoration: none;
+}
+
+.button-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+}
 
 //PAGE INVITATION
 
@@ -109,4 +136,9 @@ background: $light-grey ;
 .banner-invitation strong {
   color: $orange;
   font-weight: bold;
+}
+
+
+.margin-right {
+  margin-right: 10px;
 }
