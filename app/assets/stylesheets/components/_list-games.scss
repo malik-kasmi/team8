@@ -22,11 +22,21 @@
   margin-bottom: 0;
 }
 
+.product-details {
+  display: flex;
+  align-items: center;
+}
+
+.product-date {
+  text-align: center;
+}
+
 /* Product image */
 .product-image {
   border-radius: 5px;
   margin-right: 10px;
-  width: 150px;
+  width: 100px;
+  height: 100px;
 }
 
 /* Upvote design */
@@ -39,6 +49,7 @@
   line-height: 20px;
 }
 .product-count {
+  width: 100%;
   margin: 2px 0 0;
 }
 
