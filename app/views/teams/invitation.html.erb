@@ -1,19 +1,24 @@
-<div id="square" class="padded">
+<div id="square" class="col-xs-12 col-sm-offset-3 col-sm-8">
   <div  id="leftSquare"></div>
   <div id="rightSquare">
     <h1 class="text-center padded-top">INVITE TES AMIS!</h1>
       <div id="container">
         <div class="row">
-          <div class="col-xs-12 col-sm-offset-3 col-sm-4">
-            <div class="padded">
-              <p>Partage ce lien avec tes amis :</p>
+          <div class="">
+            <div class="text-center padded-top">
+              <h2>Partage ce lien, par mail, à tes amis</h2>
               <br>
               <%= link_to_send = request.protocol + request.host_with_port + "/join_team" + @team.id.to_s %>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-offset-3 col-sm-8">
-            <div id="shareBtn" class="button-black clearfix"> Invite tes amis avec Facebook </div>
-            <%= link_to "Plus tard", teams_path ,class:"button-black" %>
+          <div class="text-center padded-top">
+           <h2>Ou invite les directement avec Facebook</h2>
+          <div class="center">
+          <br>
+            <div id="shareBtn" class="button-orange clearfix"> Invite tes amis avec Facebook </div>
+            <%= link_to "Continuer", teams_path ,class:"button-black" %>
+
+          </div>
           </div>
         </div>
       </div>
