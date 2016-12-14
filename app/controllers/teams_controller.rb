@@ -18,10 +18,12 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     authorize @team
     @team.captain = current_user
-    @team.save
+    if @team.save
     TeamUser.create(user: @team.captain, team: @team, requester: @team.captain, status: "accept")
-
     redirect_to invitation_team_path(@team)
+    else
+      render "new"
+    end
   end
 
   def invitation
