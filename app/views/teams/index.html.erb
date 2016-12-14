@@ -7,17 +7,17 @@
       <% else %>
       <% current_user.joined_teams.each do |team| %>
           <div class="col-xs-12 col-sm-4 col-md-3 text-unstyled">
-              <%= link_to teams_path(anchor: "team-#{team.id}") do %>
-            <div class="text-center text-unstyled team-picture-link", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('equipe.jpg');">
-              <h2><%= team.name %></h2>
-            </div>
-              <% end %>
+            <%= link_to teams_path(anchor: "team-#{team.id}") do %>
+              <div class="text-center text-unstyled team-picture-link", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), <% if team.photo.nil? %> url('<%= image_path "equipe.jpg" %>') <% else %> url('<%= cl_image_path team.photo.path, height: 220, width: 220, crop: :fill %>') <% end %>;">
+                <h2><%= team.name %></h2>
+              </div>
+            <% end %>
           </div>
       <% end %>
       <% end %>
         <div class="col-xs-12 col-sm-4 col-md-3 text-unstyled">
           <%= link_to new_team_path do %>
-          <div class="text-center team-picture-link add-team-text", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('equipe.jpg');">
+          <div class="text-center team-picture-link add-team-text", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "equipe.jpg" %>');">
           <h2>+</h2>
           </div>
           <% end %>
@@ -34,7 +34,7 @@
       <% current_user.joined_teams.each do |team| %>
       <div class="row" id="team-<%= team.id%>">
         <div class="col-xs-12 col-sm-6">
-          <div class="banner-team-detail text-center" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('equipe.jpg');">
+          <div class="banner-team-detail text-center" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), <% if team.photo.nil? %> url('<%= image_path "equipe.jpg" %>') <% else %> url('<%= cl_image_path team.photo.path, height: 550, width: 300, crop: :fill %>') <% end %>;">
             <div class="text-center">
              <h3><%= team.name %></h3>
              <p><%=team.description%></p>
@@ -83,7 +83,7 @@
         <div class="col-xs-12 col-sm-6">
           <div class="row">
             <h2 class="text-center detail">Matchs à venir</h2>
-            <%= render partial: "shared/games-list", collection: team.games, as: :game, locals: {team: team}%>
+            <%= render partial: "shared/games-list", collection: team.games.upcoming, as: :game, locals: {team: team}%>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
                   <% else %>
                     <td><%= game.requester.name %></td>
                   <% end %>
-                    <td><%= game.updated_at %></td>
+                    <td><%= game[:start_date] %></td>
                       </tr>
                 <% end %>
               <% end %>
