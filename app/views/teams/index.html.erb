@@ -3,11 +3,11 @@
   <div class="container">
     <div class="row">
       <% if current_user.joined_teams.blank? %>
-        <p>Vous n'avez pas encore d'équipe</p>
+        <h2 class= "text-center">Vous n'avez pas encore d'équipe</h2>
       <% else %>
       <% current_user.joined_teams.each do |team| %>
-          <div class="col-xs-12 col-sm-4 text-unstyled">
-              <%= link_to teams_path do %>
+          <div class="col-xs-12 col-sm-4 col-md-3 text-unstyled">
+              <%= link_to teams_path(anchor: "team-#{team.id}") do %>
             <div class="text-center text-unstyled team-picture-link", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('equipe.jpg');">
               <h2><%= team.name %></h2>
             </div>
@@ -15,7 +15,7 @@
           </div>
       <% end %>
       <% end %>
-        <div class="col-xs-12 col-sm-4 text-unstyled">
+        <div class="col-xs-12 col-sm-4 col-md-3 text-unstyled">
           <%= link_to new_team_path do %>
           <div class="text-center team-picture-link add-team-text", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('equipe.jpg');">
           <h2>+</h2>
@@ -32,7 +32,7 @@
       <p>you have no teams</p>
      <% else %>
       <% current_user.joined_teams.each do |team| %>
-      <div class="row">
+      <div class="row" id="team-<%= team.id%>">
         <div class="col-xs-12 col-sm-6">
           <div class="banner-team-detail text-center" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('equipe.jpg');">
             <div class="text-center">
@@ -65,19 +65,28 @@
               </div>
             </div>
             <%end%>
-
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <%= link_to invitation_team_path(team) do %>
+              <div class="text-center">
+              <br>
+                <%= image_tag "placeholder-md.png", class: "avatar-square add-player" %>
+              </div>
+              <% end %>
+              <div class="padded-top-light">
+                  <h4 class="detail text-center"><strong>Inviter un joueur</strong></h4>
+              </div>
+            </div>
           </div>
-
         </div>
 
         <div class="col-xs-12 col-sm-6">
-        <div class="row">
-           <h2 class="text-center detail">Matchs à venir</h2>
-           <%= render partial: "shared/games-list", collection: team.games, as: :game, locals: {team: team}%>
-        </div>
+          <div class="row">
+            <h2 class="text-center detail">Matchs à venir</h2>
+            <%= render partial: "shared/games-list", collection: team.games, as: :game, locals: {team: team}%>
+          </div>
         </div>
       </div>
-          <h2 class="text-center">Résultats de la saison</h2>
+          <h2 class="text-center detail">Résultats de la saison</h2>
           <table class="container-table">
             <thead>
               <tr>
