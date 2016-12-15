@@ -1,14 +1,16 @@
 <div class="product product-upvote product-body">
     <div class='product-count'>
       <% if game.status == "pending" %>
-        <p class="detail margin-right product-date"><strong><%= game[:start_date] %></strong></p>
+        <p class="detail margin-right product-date">
+          <strong><%= l(game[:start_date], format: "%d/%m/%Y") %></strong>
+        </p>
         <div class="product-details">
           <% if game.requester.id == team.id %>
             <% if game.opponent.photo.nil? %>
-              <div class="product product-image" style="background-image: url('<%= image_path "equipe.jpg" %>')">
+              <div class="product product-image" style="background-size: cover; background-position: center; background-image: url('<%= image_path "equipe.jpg" %>')">
               </div>
             <% else %>
-            <div class="product product-image" style="background-image: url('<%= cl_image_path game.opponent.photo.path, height: 150, width: 150, crop: :fill %>')">
+            <div class="product product-image" style="background-size: cover; background-position: center; background-image: url('<%= cl_image_path game.opponent.photo.path, height: 150, width: 150, crop: :fill %>')">
             </div>
             <% end %>
             <div>
@@ -18,9 +20,9 @@
             </div>
           <% else %>
             <% if game.requester.photo.nil? %>
-              <div class="product product-image" style="background-image: url('<%= image_path "equipe.jpg" %>')"></div>
+              <div class="product product-image" style="background-size: cover; background-position: center; background-image: url('<%= image_path "equipe.jpg" %>')"></div>
             <% else %>
-            <div class="product product-image" style="background-image: url('<%= cl_image_path game.requester.photo.path, height: 100, width: 100, crop: :fill %>')"></div>
+            <div class="product product-image" style="background-size: cover; background-position: center; background-image: url('<%= cl_image_path game.requester.photo.path, height: 100, width: 100, crop: :fill %>')"></div>
             <% end %>
             <div>
               <h3><%= game.requester.name %></h3>
@@ -36,7 +38,9 @@
           <% end %>
         </div>
     <% elsif game.status == "accept" %>
-       <p class="detail margin-right product-date"><strong><%= game[:start_date] %></strong></p>
+       <p class="detail margin-right product-date">
+        <strong><%= l(game[:start_date], format: "%d/%m/%Y") %></strong>
+       </p>
       <div class="product-details">
         <% if game.requester.id == team.id %>
           <% if game.opponent.photo.nil? %>
@@ -59,7 +63,7 @@
           <% else %>
             <h3><%= game.requester.name %></h3>
           <% end %>
-          <p>Défi accepté</p>
+          <p style="color: green;">Défi accepté</p>
           <p><strong>Lieu du match : </strong><%= game[:location] %></p>
           <% if policy(game).update? %>
             <%= link_to "Entre le score du match", edit_game_path(game), class:"button-black-small"%>

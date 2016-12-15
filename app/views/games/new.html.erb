@@ -32,6 +32,7 @@
                <% end %>
              % de victoires</strong></h4>
             </div>
+            <p class="color-white card-city"><%= team.city.upcase %></p>
           </div>
 
           <div class="row">
@@ -57,7 +58,7 @@
             </div>
             <%end%>
           </div>
-            <div class="select-wrapper">
+            <div class="select-wrapper padded-top-medium">
                 <p class="color-white">Entre l'adresse du terrain où aura lieu le match :</p>
                 <%= simple_form_for Game.new, url: team_games_path(@current_team, {opponent_id: team.id}), method: :post do |f| %>
                   <%= text_field_tag :location, "", class: 'form-input form-input-large' %>
@@ -69,7 +70,6 @@
             <br>
 
             <div class="text-center padded-top-light">
-            <p class="color-white">Ville de l'équipe :<%= team.city %></p>
             <%= submit_tag "Défier cette équipe", class:"button-black" %>
             </div>
             <% end %>
