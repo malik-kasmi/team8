@@ -28,7 +28,11 @@
                <% if team.games.length == 0 %>
                  0
                <% else %>
-                 <%= (team.wins.length.fdiv(team.games.where(status: "done").length)).round(2) * 100 %>
+                 <% if team.games.where(status: "done").length == 0 %>
+                  0
+                 <% else %>
+                  <%= (team.wins.length.fdiv(team.games.where(status: "done").length)*100).round(1) %>
+                 <% end %>
                <% end %>
              % de victoires</strong></h4>
             </div>

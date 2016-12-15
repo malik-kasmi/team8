@@ -95,10 +95,10 @@
         </div>
       </div>
         <h2 class="text-center color-white">Résultats de la saison<strong>
-               <% if team.games.length == 0 %>
+               <% if team.games.where(status: "done").length == 0 %>
                  0
                <% else %>
-                 <%= (team.wins.length.fdiv(team.games.where(status: "done").length)).round(2) * 100 %>
+                 <%= (team.wins.length.fdiv(team.games.where(status: "done").length)*100).round(1) %>
                <% end %>
              %</strong> de victoires</h2>
           <table class="container-table">
