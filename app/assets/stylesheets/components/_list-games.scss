@@ -18,7 +18,7 @@
 }
 .product-body p {
   font-weight: lighter;
-  color: $orange;
+  color: $white;
   margin-bottom: 0;
 }
 
@@ -28,7 +28,8 @@
 }
 
 .product-date {
-  text-align: center;
+  padding-bottom: 0px;
+  padding-left: 18px;
 }
 
 /* Product image */
