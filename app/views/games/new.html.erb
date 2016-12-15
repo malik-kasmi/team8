@@ -1,67 +1,91 @@
 <div class="background-sign-form">
- <h1 class="text-center padded-top padded-bottom">Défie une équipe</h1>
+ <h1 class="text-center padded-top">Défie une Team</h1>
   <div class="center">
-   <hr>
     <%= form_tag new_team_game_path, method: :get do %>
-    <%= label_tag(:city, "Entre une ville pour trouver les équipes proches de chez toi:") %>
-    <%= text_field_tag :city, "", class: 'form-input padded-top  padded-left'%>
-    <%= submit_tag "Rechercher", class:"button-orange"%>
-    <% end %>
+    <div class= "detail text-center padded-top-light">
+    <%= label_tag(:city, "Entre une ville pour trouver les équipes proches de chez toi") %>
+    </div>
+      <div class= "text-center">
+      <%= text_field_tag :city, "", class: 'form-input form-input-medium'%>
+      </div>
+      <div class= "text-center padded-top-medium margin-bottom-light">
+      <%= submit_tag "Rechercher", class:"button-orange"%>
+      <% end %>
+      </div>
      <hr>
-      <% @teams.each do |t| %>
-      <div class="text-center">
-        <h1 class="padded-bottom"><%= t.name %></h1>
-        </div>
-
-     <div class="flexbox">
-        <% t.players.each do |p| %>
-        <div class="text-center">
-          <li class="list-unstyled"><strong><%= p.username%></strong></li>
-              <br>
-        <% if p.photo.nil? %>
-          <% if p == t.captain %>
-            <%= image_tag "placeholder-md.png", class: "avatar-captain" %>
+    <div class="container">
+    <div class="row">
+      <% @teams.each do |team| %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="banner-team-detail text-center" style="background-size: cover; background-position: center; background-image: linear-gradient(-225deg, rgba(44, 44, 44, 0.6) 0%, rgba(44, 55, 63, 0.6) 50%),
+          <% if team.photo.nil? %> url('<%= image_path "equipe.jpg" %>')
           <% else %>
-            <%= image_tag "placeholder-md.png", class: "avatar-square" %>
-          <% end %>
-        <% else %>
-          <% if p == t.captain %>
-            <%= cl_image_tag p.photo.path, class:"avatar-captain" %>
-          <% else %>
-           <%= cl_image_tag p.photo.path, class:"avatar-square" %>
-          <% end %>
-          <% end %>
-          <ul class="list-unstyled">
-              <br>
-              <li>Age: <%= p.age%></li>
-              <li>Poste: <%= p.favorite_position%></li>
-              </ul>
-              </div>
-        <% end %>
-        </div>
-        <h4 class="margin"> % de victoires:
-          <% if t.games.length == 0 %>
-            0
-          <% else %>
-            <%= (t.wins.length.fdiv(t.games.length)).round(2) * 100 %>
-          <% end %>
-        </h4>
-         <br>
-          <div class="select-wrapper">
-              <p class="color-white">Entre l'adresse du terrain où aura lieu le match :</p>
-              <%= simple_form_for Game.new, url: team_games_path(@current_team, {opponent_id: t.id}), method: :post do |f| %>
-                <%= text_field_tag :location, "", class: 'form-input' %>
-                <br>
-                <br>
-                <p class="color-white">Choisis la date du match :</p>
-                <%= date_select :start_date, nil, :class => 'datepicker' %>
+            url('<%= cl_image_path team.photo.path, width: 400, gravity:"auto", crop: :fill %>') <% end %>;">
+            <div class="text-center">
+             <h3><%= team.name %></h3>
+             <p><%=team.description%></p>
+             <h4><strong>
+               <% if team.games.length == 0 %>
+                 0
+               <% else %>
+                 <%= (team.wins.length.fdiv(team.games.length)).round(2) * 100 %>
+               <% end %>
+             % de victoires</strong></h4>
+            </div>
+            <p class="color-white card-city"><%= team.city.upcase %></p>
           </div>
-          <br>
-          <p class="color-white">Ville de l'équipe :<%= t.city %></p>
-          <%= submit_tag "Défier cette équipe", class:"button-black margin" %>
-          <% end %>
-        <hr>
-         <% end %>
+
+          <div class="row">
+            <% team.players.each do |player| %>
+            <div class="col-xs-6">
+              <div class="text-center">
+              <br>
+                <% if player.photo.nil? %>
+                  <%= image_tag "placeholder-md.png", class: "avatar-square" %>
+                <% elsif player == team.captain %>
+                    <%= cl_image_tag player.photo.path, class:"avatar-captain", width: 100, height: 100, gravity: :center, crop: :fill %>
+                <% else %>
+                  <%= cl_image_tag player.photo.path, class:"avatar-square", width: 100, height: 100, gravity: :center, crop: :fill %>
+                <% end %>
+                <div>
+                  <h4 class="detail"><strong><%= player.username%></strong></h4>
+                  <ul class="list-unstyled">
+                  <li> Poste: <%= player.favorite_position%></lo>
+                  <li>Age: <%= player.age%></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <%end%>
+          </div>
+            <div class="select-wrapper padded-top-medium">
+                <p class="color-white">Entre l'adresse du terrain où aura lieu le match :</p>
+                <%= simple_form_for Game.new, url: team_games_path(@current_team, {opponent_id: team.id}), method: :post do |f| %>
+                  <%= text_field_tag :location, "", class: 'form-input form-input-large' %>
+                  <br>
+                  <br>
+                  <p class="color-white">Choisis la date du match :</p>
+                  <%= date_select :start_date, nil, :class => 'datepicker' %>
+            </div>
+            <br>
+
+            <div class="text-center padded-top-light">
+            <%= submit_tag "Défier cette équipe", class:"button-black" %>
+            </div>
+            <% end %>
+          <hr>
+
+        </div>
+      <% end %>
+    </div>
+    </div>
+
+
+
+
+
+
+
 
    </div>
  </div>

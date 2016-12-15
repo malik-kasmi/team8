@@ -80,6 +80,15 @@
   transition-delay: 0s;
 }
 
+.form-input-large {
+  width: 100%;
+}
+
+.form-input-medium {
+  width: 465px;
+  padding-bottom: 15px;
+}
+
 .form-input:focus {
   border-bottom: 2px solid $orange;
   box-shadow: inset 0 2px 2px -2px rgba($white, 0), 0 4px 2px -2px rgba($orange, 1);

@@ -8,7 +8,7 @@
       <% current_user.joined_teams.each do |team| %>
           <div class="col-xs-12 col-sm-4 col-md-3 text-unstyled">
             <%= link_to teams_path(anchor: "team-#{team.id}") do %>
-              <div class="text-center text-unstyled team-picture-link", style="background-image: linear-gradient(-225deg, rgba(44, 44, 44, 0.6) 0%, rgba(44, 55, 63, 0.6) 50%), <% if team.photo.nil? %> url('<%= image_path "equipe.jpg" %>') <% else %> url('<%= cl_image_path team.photo.path, height: 220, width: 220, crop: :fill %>') <% end %>;">
+              <div class="text-center text-unstyled team-picture-link", style="background-size: cover; background-position: center; background-image: linear-gradient(-225deg, rgba(44, 44, 44, 0.6) 0%, rgba(44, 55, 63, 0.6) 50%), <% if team.photo.nil? %> url('<%= image_path "equipe.jpg" %>') <% else %> url('<%= cl_image_path team.photo.path, height: 220, width: 220, crop: :fill %>') <% end %>;">
                 <h2><%= team.name %></h2>
               </div>
             <% end %>
@@ -45,6 +45,7 @@
             <div class="text-center">
               <% if policy(team).create_game? %>
                 <%= link_to "Organiser un match", new_team_game_path(team), class:"button-orange button-orange-go text-center" %>
+                <p class="color-white card-city"><%= team.city.upcase %></p>
               <% end %>
             </div>
 
@@ -93,7 +94,13 @@
           </div>
         </div>
       </div>
-          <h2 class="text-center detail">Résultats de la saison</h2>
+        <h2 class="text-center color-white">Résultats de la saison<strong>
+               <% if team.games.length == 0 %>
+                 0
+               <% else %>
+                 <%= (team.wins.length.fdiv(team.games.length)).round(2) * 100 %>
+               <% end %>
+             %</strong> de victoires</h2>
           <table class="container-table">
             <thead>
               <tr>
@@ -118,7 +125,7 @@
                   <% else %>
                     <td><%= game.requester.name %></td>
                   <% end %>
-                    <td><%= game[:start_date] %></td>
+                    <td><%= l(game[:start_date], format: "%d/%m/%Y") %></td>
                       </tr>
                 <% end %>
               <% end %>

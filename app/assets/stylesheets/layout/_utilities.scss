@@ -38,8 +38,20 @@
   padding-top: 15px;
 }
 
+.padded-top-lighter {
+  padding-top: 5px;
+}
+
+.padded-top-medium {
+padding-top: 30px;
+}
+
 .padded-bottom {
   padding-bottom: 70px;
+}
+
+.padded-bottom-light {
+  padding-top: 40px;
 }
 
 .padded-ultra-light {
@@ -71,6 +83,10 @@ background: $light-grey ;
 
 .center {
   margin: 0 auto;
+}
+
+.margin-bottom-light {
+  margin-bottom: 35px;
 }
 
 .flexbox-center-container {
