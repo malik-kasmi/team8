@@ -64,3 +64,34 @@
   text-decoration: none;
 }
 
+
+.button-black-small {
+  background-color: rgba($black, 0.7);
+  border-color: $orange;
+  color: $orange;
+  font-family: $header-font;
+  font-weight: 700;
+  border: 1px solid;
+  border-radius: 1px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  letter-spacing: .1rem;
+  line-height: 1.43;
+  margin-bottom: 0;
+  padding: 6px 18px;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.button-black-small:hover {
+  background-color: rgba($orange, 0.9);
+  color: $black;
+  border-color: $orange;
+  text-decoration: none;
+}
