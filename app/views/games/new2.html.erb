@@ -1,0 +1,67 @@
+<div class="background-sign-form">
+ <h1 class="text-center padded-top padded-bottom">Défie une équipe</h1>
+  <div class="center">
+   <hr>
+    <%= form_tag new_team_game_path, method: :get do %>
+    <%= label_tag(:city, "Entre une ville pour trouver les équipes proches de chez toi:") %>
+    <%= text_field_tag :city, "", class: 'form-input padded-top  padded-left'%>
+    <%= submit_tag "Rechercher", class:"button-orange"%>
+    <% end %>
+     <hr>
+      <% @teams.each do |t| %>
+      <div class="text-center">
+        <h1 class="padded-bottom"><%= t.name %></h1>
+        </div>
+
+     <div class="flexbox">
+        <% t.players.each do |p| %>
+        <div class="text-center">
+          <li class="list-unstyled"><strong><%= p.username%></strong></li>
+              <br>
+        <% if p.photo.nil? %>
+          <% if p == t.captain %>
+            <%= image_tag "placeholder-md.png", class: "avatar-captain" %>
+          <% else %>
+            <%= image_tag "placeholder-md.png", class: "avatar-square" %>
+          <% end %>
+        <% else %>
+          <% if p == t.captain %>
+            <%= cl_image_tag p.photo.path, class:"avatar-captain" %>
+          <% else %>
+           <%= cl_image_tag p.photo.path, class:"avatar-square" %>
+          <% end %>
+          <% end %>
+          <ul class="list-unstyled">
+              <br>
+              <li>Age: <%= p.age%></li>
+              <li>Poste: <%= p.favorite_position%></li>
+              </ul>
+              </div>
+        <% end %>
+        </div>
+        <h4 class="margin"> % de victoires:
+          <% if t.games.length == 0 %>
+            0
+          <% else %>
+            <%= (t.wins.length.fdiv(t.games.length)).round(2) * 100 %>
+          <% end %>
+        </h4>
+         <br>
+          <div class="select-wrapper">
+              <p class="color-white">Entre l'adresse du terrain où aura lieu le match :</p>
+              <%= simple_form_for Game.new, url: team_games_path(@current_team, {opponent_id: t.id}), method: :post do |f| %>
+                <%= text_field_tag :location, "", class: 'form-input' %>
+                <br>
+                <br>
+                <p class="color-white">Choisis la date du match :</p>
+                <%= date_select :start_date, nil, :class => 'datepicker' %>
+          </div>
+          <br>
+          <p class="color-white">Ville de l'équipe :<%= t.city %></p>
+          <%= submit_tag "Défier cette équipe", class:"button-black margin" %>
+          <% end %>
+        <hr>
+         <% end %>
+
+   </div>
+ </div>
