@@ -26,7 +26,7 @@
             <% end %>
             <div>
               <h3><%= game.requester.name %></h3>
-              <p><%= game.status %></p>
+              <p> En attente de confirmation </p>
               <p><%= game[:location] %></p>
               <% if policy(game).accept? %>
                 <div class="list-inline product-controls hidden-sm hidden-xs">
